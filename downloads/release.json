@@ -1,7 +1,7 @@
 {
-  "version": "0.19.9",
+  "version": "0.19.10",
   "platform": "win32-x64",
-  "bytes": 1326065,
-  "sha256": "fae5e204a6cbcf166ee76c239ad000c0a2d742edd6e23f29d3dd5e7a23530beb",
-  "sourceHash": "ac0512cbc5b4ce26ed0cac4545dd712f41cccc0d12703425b41b048811561bd9"
+  "bytes": 1325818,
+  "sha256": "ecc443339e4889981e59793c9b5f28aaedbcf79114931b88ebffe29dabbd1cd1",
+  "sourceHash": "79f57650ec7487ae9cabe6cebf5f738ac063b534a72956bd134f4e723555ba14"
 }
