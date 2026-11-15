@@ -8,7 +8,9 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  # The previous `pages` group is stuck after a successful deployment job.
+  # Use a fresh group so future deployments can run and remain serialized.
+  group: pages-v2
   cancel-in-progress: true
 jobs:
   deploy:
