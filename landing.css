@@ -114,3 +114,21 @@ footer .wordmark{color:var(--ink)}
 .footer-copyright{position:absolute;left:0;right:0;bottom:20px;color:#fff;font-size:11px;text-shadow:0 2px 6px #102319b0}
 @media(max-width:700px){.site-footer{min-height:610px;background-position:center,center 53%}.footer-info{grid-template-columns:1fr 1fr;gap:25px 20px;padding:32px 7% 0}.footer-brand{grid-column:1/-1}.footer-landscape{height:300px}.footer-landscape span{top:12%;font-size:27vw}.footer-copyright{bottom:15px}}
 @media(max-width:380px){.site-footer{min-height:570px}.footer-landscape{height:260px}.footer-landscape span{top:17%}}
+
+/* Cool the lower page surfaces to match the blue sky palette above. */
+.feature-grid article{border-color:#315c7818;background:linear-gradient(145deg,#f7fbffdf,#eaf4fb86);box-shadow:0 14px 32px #234a6410}
+.feature-grid article>img{background:#e4eff8}
+.feature-grid article:nth-child(2)>img{background:#e7eafb}
+.feature-grid article:nth-child(3)>img{background:#e2f0f7}
+.feature-grid article:nth-child(4)>img{background:#e8eef9}
+.getting-started{background:radial-gradient(ellipse at 2% 0%,#d9eaf5 0,transparent 45%),linear-gradient(135deg,#e8f2f8,#f0f5f8 72%)}
+.steps li{border-color:#315c7818;background:#f7fbfed9}
+.steps li:last-child{border-bottom-color:#315c7818}
+.steps li>span{background:#edf5fa}
+.privacy-note{background:linear-gradient(110deg,#173f5b,#245573);box-shadow:0 24px 55px #14334b1f}
+.privacy-note::after{border-color:#dceeff2b;box-shadow:0 0 0 22px #dceeff0d,0 0 0 46px #dceeff08}
+.privacy-note>img{background:#e2f1fa}
+.privacy-note p{color:#e5f0f7d6}
+.faq-list details{border-color:#315c7818;background:#f7fbfea8}
+.faq-list details[open]{background:#f7fbfee8;box-shadow:0 10px 24px #234a6409}
+.faq-list summary span{background:#e5eff8}
