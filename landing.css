@@ -102,3 +102,15 @@ footer .wordmark{color:var(--ink)}
 
 /* Landscape footer */
 .site-footer{display:block;padding:0;color:#26363b;background:#f2f3ef}.footer-info{position:relative;display:grid;grid-template-columns:1.7fr repeat(3,minmax(110px,1fr));gap:40px;padding:45px 5% 60px}.footer-brand .wordmark{font-size:34px;letter-spacing:-2px;color:var(--ink)}.footer-brand .brand-mark{width:30px;height:30px}.footer-brand p{max-width:240px;margin-top:14px;font-size:12px;line-height:1.6;color:#5f6d70}.footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:12px;color:#5b696b}.footer-column h2{font:500 12px 'DM Sans',sans-serif;color:#202f33;margin:2px 0 3px}.footer-column a:hover{text-decoration:underline;text-underline-offset:3px}.footer-copyright{position:absolute;left:0;right:0;bottom:19px;text-align:center;font-size:11px;color:#45575c}.footer-landscape{position:relative;height:clamp(270px,37vw,500px);overflow:hidden;background:url('assets/footer-landscape.png') center 56%/cover no-repeat}.footer-landscape span{position:absolute;top:-.11em;left:50%;transform:translateX(-50%);font-family:'DM Sans',sans-serif;font-size:clamp(110px,24vw,370px);font-weight:700;line-height:1;letter-spacing:-.09em;color:#fff;white-space:nowrap;text-shadow:0 4px 24px #174a4a12;user-select:none}@media(max-width:700px){.footer-info{grid-template-columns:1fr 1fr;gap:30px 24px;padding:35px 7% 65px}.footer-brand{grid-column:1/-1}.footer-column{gap:10px}.footer-landscape{height:290px;background-position:center 58%}.footer-landscape span{top:13%;font-size:27vw;letter-spacing:-.08em}}@media(max-width:380px){.footer-landscape{height:230px}.footer-landscape span{top:20%}}
+
+/* Keep the entire footer, including its navigation, over the landscape. */
+.site-footer{position:relative;min-height:580px;overflow:hidden;background:linear-gradient(180deg,#f5f7f0e8 0%,#f5f7f0b8 30%,#f5f7f000 66%,#17382240 100%),url('assets/footer-landscape.png') center 53%/cover no-repeat;color:#183138}
+.footer-info{grid-template-columns:minmax(220px,1.55fr) repeat(3,minmax(105px,.65fr));gap:35px;padding:44px 5% 0}
+.footer-brand .wordmark{color:#183138}
+.footer-brand p,.footer-column{color:#34494d}
+.footer-column h2{color:#172e33}
+.footer-landscape{height:clamp(290px,34vw,460px);background:none}
+.footer-landscape span{top:0;left:50%;font-size:clamp(110px,23vw,360px)}
+.footer-copyright{position:absolute;left:0;right:0;bottom:20px;color:#fff;font-size:11px;text-shadow:0 2px 6px #102319b0}
+@media(max-width:700px){.site-footer{min-height:610px;background-position:center,center 53%}.footer-info{grid-template-columns:1fr 1fr;gap:25px 20px;padding:32px 7% 0}.footer-brand{grid-column:1/-1}.footer-landscape{height:300px}.footer-landscape span{top:12%;font-size:27vw}.footer-copyright{bottom:15px}}
+@media(max-width:380px){.site-footer{min-height:570px}.footer-landscape{height:260px}.footer-landscape span{top:17%}}
