@@ -136,11 +136,14 @@ footer .wordmark{color:var(--ink)}
 /* Blend the page background into the footer image at its upper edge. */
 .site-footer{background:linear-gradient(180deg,#f6f5ea 0%,#f6f5eaf2 8%,#f6f5eab0 22%,#f6f5ea38 38%,transparent 52%,#17382240 100%),url('assets/footer-landscape.png') center 53%/cover no-repeat}
 
-/* Feature showcase card with vertical dot navigation */
-.features-showcase{max-width:1180px;margin:0 auto;padding:96px 5% 88px}
-.features-layout{display:flex;align-items:center;gap:26px}
-.feature-card{flex:1;min-width:0;border-radius:20px;border:1px solid #263e4820;background:#fbfaf3;box-shadow:0 18px 46px #233d4810;overflow:hidden}
-.feature-slide{margin:0}
+/* Feature showcase card with sticky scroll & vertical dot navigation */
+.features-showcase{position:relative;height:calc(100svh + (var(--feature-count,5) - 1) * 70svh);scroll-margin-top:0}
+.features-sticky{position:sticky;top:0;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:48px 5%}
+.features-layout{width:100%;max-width:1120px;display:flex;align-items:center;gap:26px}
+.feature-card{flex:1;min-width:0;display:grid;border-radius:20px;border:1px solid #263e4820;background:#fbfaf3;box-shadow:0 18px 46px #233d4810;overflow:hidden}
+.feature-slide{grid-area:1/1;margin:0;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px);transition:opacity .42s cubic-bezier(.22,1,.36,1),transform .42s cubic-bezier(.22,1,.36,1),visibility 0s linear .42s}
+.feature-slide.is-prev{transform:translateY(-14px)}
+.feature-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition:opacity .42s cubic-bezier(.22,1,.36,1),transform .42s cubic-bezier(.22,1,.36,1),visibility 0s}
 .feature-stage{position:relative;height:420px;overflow:hidden;border-bottom:1px solid #263e4814}
 .feature-stage::before,.feature-stage::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
 .feature-stage::before{width:560px;height:560px;top:-260px;left:-120px;background:radial-gradient(circle at 45% 45%,#f6f5ea99,transparent 68%)}
@@ -192,5 +195,6 @@ footer .wordmark{color:var(--ink)}
 .feature-dots button::before{content:"";width:10px;height:10px;border-radius:50%;background:#233d482b;transition:background .22s ease,transform .22s ease}
 .feature-dots button:hover::before{background:#233d4866}
 .feature-dots button[aria-selected=true]::before{background:var(--ink);transform:scale(1.12)}
-@media(max-width:900px){.features-showcase{padding:72px 4.5% 68px}.feature-stage{height:360px}.feature-window{top:24px;left:24px;grid-template-columns:178px minmax(0,1fr)}.fw-row{grid-template-columns:28px 1.2fr .8fr 1.3fr}.fw-row>span:nth-child(4){display:none}.feature-caption{padding:24px 26px 28px}}
-@media(max-width:680px){.features-showcase{padding:56px 20px 52px}.features-layout{flex-direction:column;gap:16px}.feature-dots{flex-direction:row;gap:6px}.feature-stage{height:305px}.feature-window{top:18px;left:18px;grid-template-columns:1fr}.fw-sidebar{display:none}.fw-row{grid-template-columns:28px 1.25fr 1fr}.fw-row>span:nth-child(3),.fw-row>span:nth-child(4){display:none}.fw-cards-grid{grid-template-columns:1fr;padding:14px}.feature-caption{padding:20px 22px 24px}.feature-caption h3{font-size:18px}.feature-caption p{font-size:14.5px}}
+@media(max-width:900px){.features-sticky{padding:36px 4.5%}.feature-stage{height:360px}.feature-window{top:24px;left:24px;grid-template-columns:178px minmax(0,1fr)}.fw-row{grid-template-columns:28px 1.2fr .8fr 1.3fr}.fw-row>span:nth-child(4){display:none}.feature-caption{padding:24px 26px 28px}}
+@media(max-width:680px){.features-showcase{height:calc(100svh + (var(--feature-count,5) - 1) * 60svh)}.features-sticky{padding:24px 20px}.features-layout{flex-direction:column;gap:16px}.feature-dots{flex-direction:row;gap:6px}.feature-stage{height:305px}.feature-window{top:18px;left:18px;grid-template-columns:1fr}.fw-sidebar{display:none}.fw-row{grid-template-columns:28px 1.25fr 1fr}.fw-row>span:nth-child(3),.fw-row>span:nth-child(4){display:none}.fw-cards-grid{grid-template-columns:1fr;padding:14px}.feature-caption{padding:20px 22px 24px}.feature-caption h3{font-size:18px}.feature-caption p{font-size:14.5px}}
+@media(prefers-reduced-motion:reduce){.feature-slide,.feature-slide.is-prev,.feature-slide.is-active{transform:none;transition:none}}
