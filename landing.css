@@ -132,3 +132,6 @@ footer .wordmark{color:var(--ink)}
 .faq-list details{border-color:#315c7818;background:#f7fbfea8}
 .faq-list details[open]{background:#f7fbfee8;box-shadow:0 10px 24px #234a6409}
 .faq-list summary span{background:#e5eff8}
+
+/* Blend the page background into the footer image at its upper edge. */
+.site-footer{background:linear-gradient(180deg,#f6f5ea 0%,#f6f5eaf2 8%,#f6f5eab0 22%,#f6f5ea38 38%,transparent 52%,#17382240 100%),url('assets/footer-landscape.png') center 53%/cover no-repeat}
