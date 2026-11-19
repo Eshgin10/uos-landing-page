@@ -273,3 +273,37 @@ footer .wordmark{color:var(--ink)}
 .cta-note{display:block;margin-top:20px;font-size:12px;color:#c7dcff}
 .cta-note a{text-decoration:underline;text-underline-offset:3px;color:#ffffff}
 @media(max-width:680px){.cta-section{padding:16px 20px 68px}.cta-card{border-radius:20px;padding:56px 22px 52px}.cta-card>p{font-size:14.5px;margin-bottom:26px}.cta-button{padding:15px 22px;font-size:13.5px}}
+
+/* Unified Utopia palette and a centered, full-size product demo. */
+:root{--ink:#1b334b;--muted:#52677b;--cream:#f4f7fb;--blue:#3158d8;--line:#24466a20;--page:#f4f7fb;--surface:#ffffff;--surface-soft:#eaf1f8;--navy:#173653}
+html{background:var(--page)}
+body{background:var(--page);color:var(--ink)}
+.header{color:#fff}
+.header .nav-download{background:#f4f7fb;color:var(--ink);border-color:#ffffffa8;box-shadow:0 8px 24px #10283d25}
+.header nav a{color:#f7faff}
+.hero{background:none;color:#fff}
+.hero::before{background:linear-gradient(180deg,#102a4678 0%,#173c5c52 45%,#173653a8 100%),url('hero.jpg') center 45%/cover}
+.hero::after{background:radial-gradient(ellipse at 50% 18%,#d8e9ff28,transparent 66%)}
+.hero-copy::before{background:radial-gradient(ellipse at center,#102b4c75 0%,#102b4c35 54%,transparent 76%)}
+.primary{background:var(--blue);color:#fff;box-shadow:0 10px 26px #102b6345}
+.primary:hover{background:#2449c5}
+.demo-film{display:block;max-width:1440px;padding:112px clamp(24px,5vw,76px) 124px;text-align:center;background:var(--page)}
+.demo-film-heading{max-width:760px;margin:0 auto 38px}
+.demo-film-heading .eyebrow{color:var(--blue)}
+.demo-film-heading h2{color:var(--ink);font-size:clamp(50px,6vw,82px)}
+.demo-film-heading>p{max-width:56ch;margin:0 auto;color:var(--muted);font-size:16px}
+.demo-film-frame{width:min(100%,1160px);margin:0 auto;padding:12px;background:var(--surface);border:1px solid #24466a24;border-radius:26px;box-shadow:0 30px 80px #1736531c}
+.demo-film-frame video{width:100%;aspect-ratio:16/9;background:#10243b;border-radius:17px;object-fit:contain}
+.demo-film-frame figcaption{padding:14px 8px 4px;color:var(--muted);font-size:12px;letter-spacing:.04em}
+.features-showcase{background:linear-gradient(180deg,#eaf1f8 0%,#f4f7fb 100%)}
+.feature-card{background:var(--surface);border-color:#24466a20;box-shadow:0 22px 58px #17365316}
+.feature-caption{background:var(--surface)}
+.cta-card{background:linear-gradient(135deg,#173653 0%,#234d80 48%,#3158d8 100%);box-shadow:0 24px 60px #17365326}
+.site-footer{background:linear-gradient(180deg,var(--page) 0%,#eaf1f8 28%,#dce8f1 100%);color:var(--ink)}
+.footer-brand .wordmark{color:var(--ink)}
+.footer-brand p,.footer-column{color:var(--muted)}
+.footer-column h2{color:var(--ink)}
+.footer-landscape{background-image:linear-gradient(180deg,#dce8f100 0%,#17365318 100%),url('assets/footer-landscape.png')}
+.footer-landscape span{color:#fff;text-shadow:0 4px 24px #1736532b}
+@media(max-width:900px){.demo-film{padding:84px 30px 94px}.demo-film-heading{margin-bottom:30px}}
+@media(max-width:560px){.demo-film{padding:68px 20px 76px}.demo-film-heading{margin-bottom:23px}.demo-film-heading h2{font-size:clamp(46px,12vw,62px)}.demo-film-heading>p{font-size:14px}.demo-film-frame{padding:7px;border-radius:18px}.demo-film-frame video{border-radius:12px}}
