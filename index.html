@@ -21,38 +21,19 @@
 <div class="features-sticky">
 <div class="features-layout">
 <div class="feature-card" aria-live="polite">
+
 <article class="feature-slide is-active" id="feature-context" data-feature-slide="0" aria-hidden="false">
-<div class="feature-stage stage-meadow">
-<div class="feature-window" aria-hidden="true">
-<aside class="fw-sidebar">
-<div class="fw-pill-top"><span class="fw-ico">⌘</span> Full Context</div>
-<div class="fw-select"><span>scope: your PC</span><span>↕</span></div>
-<div class="fw-search-row"><div class="fw-search">Ask anything…</div><span class="fw-mini-btn">↻</span></div>
-<ul class="fw-nav">
-<li class="is-current"><span class="fw-dot-ico"></span>All Sources</li>
-<li><span class="fw-dot-ico"></span>Local Files</li>
-<li><span class="fw-dot-ico"></span>Open Apps</li>
-<li><span class="fw-dot-ico"></span>Browser Tabs</li>
-<li><span class="fw-dot-ico"></span>Recent Activity</li>
-</ul>
-</aside>
-<div class="fw-main">
-<div class="fw-toolbar">
-<span class="fw-tool-btn">Auto-resolved</span>
-<span class="fw-tool-btn">Files + Apps</span>
-<span class="fw-tool-primary">Live Sync</span>
-<span class="fw-tool-meta">4 sources linked</span>
+<div class="feature-stage vis-context" aria-hidden="true">
+<div class="ctx-squircles">
+<div class="ctx-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg><span>Files</span></div>
+<div class="ctx-tile is-lifted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M8 20h8M12 18v2"/></svg><span>Apps</span></div>
+<div class="ctx-tile is-lifted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>Tabs</span></div>
+<div class="ctx-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span>Notes</span></div>
 </div>
-<div class="fw-prompt-bar"><span class="fw-badge">Prompt</span> “Prep the Q4 update from my notes and open tabs.”</div>
-<div class="fw-table">
-<div class="fw-row fw-head"><span></span><span>source</span><span>location</span><span>type</span><span>matched context</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Q4-notes.md</span><span>~/Documents</span><span>File</span><span>Key targets &amp; milestones</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Revenue-2026.xlsx</span><span>~/Downloads</span><span>Sheet</span><span>Monthly totals &amp; deltas</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Analytics Dashboard</span><span>Chrome Tab</span><span>App</span><span>Active conversion metrics</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Design Review</span><span>Slack · Open</span><span>App</span><span>Latest team feedback</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Deck-Template.pptx</span><span>~/Projects</span><span>File</span><span>Company slide layout</span></div>
-</div>
-</div>
+<div class="ctx-prompt">
+<span class="ctx-dot"></span>
+<span class="ctx-text">“Prep the Q4 update from last week’s notes and open tabs.”</span>
+<span class="ctx-pill">4 sources linked</span>
 </div>
 </div>
 <div class="feature-caption">
@@ -62,34 +43,19 @@
 </article>
 
 <article class="feature-slide" id="feature-agents" data-feature-slide="1" aria-hidden="true">
-<div class="feature-stage stage-sky">
-<div class="feature-window" aria-hidden="true">
-<aside class="fw-sidebar">
-<div class="fw-pill-top"><span class="fw-ico">✦</span> Agentic Work</div>
-<div class="fw-select"><span>routing: auto</span><span>↕</span></div>
-<div class="fw-search-row"><div class="fw-search">Filter runs…</div><span class="fw-mini-btn">+</span></div>
-<ul class="fw-nav">
-<li class="is-current"><span class="fw-dot-ico"></span>Active Pipeline</li>
-<li><span class="fw-dot-ico"></span>Planner Agent</li>
-<li><span class="fw-dot-ico"></span>Research Agents</li>
-<li><span class="fw-dot-ico"></span>Verifier</li>
-</ul>
-</aside>
-<div class="fw-main">
-<div class="fw-toolbar">
-<span class="fw-tool-btn">Auto-model</span>
-<span class="fw-tool-btn">4 steps</span>
-<span class="fw-tool-primary">Running in bg</span>
-<span class="fw-tool-meta">Outcome-driven</span>
+<div class="feature-stage vis-agents" aria-hidden="true">
+<div class="ag-stack">
+<div class="ag-toast is-top">
+<div class="ag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div>
+<div class="ag-body"><div class="ag-head"><strong>Planner Agent</strong><span>2m ago</span></div><p>Divided your goal into 3 parallel steps and routed each to the best model.</p></div>
 </div>
-<div class="fw-prompt-bar"><span class="fw-badge">Goal</span> “Compare our competitors and build a concise strategy brief.”</div>
-<div class="fw-table">
-<div class="fw-row fw-head"><span></span><span>agent step</span><span>model picked</span><span>mode</span><span>status</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>01 · Break down task</span><span>Fast Router</span><span>Planner</span><span><em class="fw-pill ok">Done</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>02 · Gather specs &amp; pricing</span><span>Research Pro</span><span>Parallel</span><span><em class="fw-pill ok">Done</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>03 · Analyze gaps &amp; draft</span><span>Deep Reasoner</span><span>Background</span><span><em class="fw-pill live">Working…</em></span></div>
-<div class="fw-row"><span class="fw-check"></span><span>04 · Verify &amp; format brief</span><span>Precision Check</span><span>Queued</span><span><em class="fw-pill">Next</em></span></div>
+<div class="ag-toast is-main">
+<div class="ag-icon is-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+<div class="ag-body"><div class="ag-head"><strong>Orchestrated Agents</strong><span class="ag-live">● Running in bg</span></div><p>Auto-selected Deep Reasoner + Research Pro to compare sources and draft your brief.</p></div>
 </div>
+<div class="ag-toast is-bottom">
+<div class="ag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div>
+<div class="ag-body"><div class="ag-head"><strong>Outcome Ready</strong><span>Just now</span></div><p>Verified strategy brief delivered — zero model switching needed.</p></div>
 </div>
 </div>
 </div>
@@ -100,32 +66,36 @@
 </article>
 
 <article class="feature-slide" id="feature-ui" data-feature-slide="2" aria-hidden="true">
-<div class="feature-stage stage-forest">
-<div class="feature-window" aria-hidden="true">
-<aside class="fw-sidebar">
-<div class="fw-pill-top"><span class="fw-ico">◧</span> Dynamic UI</div>
-<div class="fw-select"><span>view: generated</span><span>↕</span></div>
-<div class="fw-search-row"><div class="fw-search">Switch view…</div><span class="fw-mini-btn">✦</span></div>
-<ul class="fw-nav">
-<li class="is-current"><span class="fw-dot-ico"></span>Q4 Overview</li>
-<li><span class="fw-dot-ico"></span>Flight Picker</li>
-<li><span class="fw-dot-ico"></span>File Diff</li>
-<li><span class="fw-dot-ico"></span>Schedule Grid</li>
-</ul>
-</aside>
-<div class="fw-main">
-<div class="fw-toolbar">
-<span class="fw-tool-btn">Visual View</span>
-<span class="fw-tool-btn">No tabs needed</span>
-<span class="fw-tool-primary">Apply Changes</span>
-<span class="fw-tool-meta">Generated live</span>
+<div class="feature-stage vis-ui" aria-hidden="true">
+<div class="ui-masonry">
+<div class="ui-tile ui-crop-top">
+<span class="ui-kicker">Calendar</span>
+<strong>Thu · 10:00 AM</strong>
+<p>Design review with Alex &amp; Sam</p>
 </div>
-<div class="fw-cards-grid">
-<div class="fw-mini-card"><span class="fw-tag">Revenue</span><strong>$48,920</strong><p>+18.4% vs last quarter across 3 active channels.</p><div class="fw-bars"><span style="height:42%"></span><span style="height:64%"></span><span style="height:55%"></span><span style="height:82%"></span><span class="is-peak" style="height:100%"></span></div></div>
-<div class="fw-mini-card"><span class="fw-tag">Action Items</span><strong>3 Ready to Approve</strong><p>Drafted directly from your notes—review and confirm in one click.</p><div class="fw-chips"><span>Send Q4 deck</span><span>Update CSV</span><span>Notify team</span></div></div>
-<div class="fw-mini-card"><span class="fw-tag">Next Milestone</span><strong>Launch · Friday</strong><p>All 5 checklist items verified with zero blockers.</p></div>
-<div class="fw-mini-card"><span class="fw-tag">Interface Mode</span><strong>Built for your prompt</strong><p>Charts, tables, and controls appear automatically—no app switching.</p></div>
+<div class="ui-tile ui-featured">
+<span class="ui-kicker">Q4 Revenue</span>
+<div class="ui-metric"><strong>$48.9k</strong><span>+18.4%</span></div>
+<div class="ui-bars"><span style="height:40%"></span><span style="height:62%"></span><span style="height:52%"></span><span style="height:78%"></span><span class="is-peak" style="height:100%"></span></div>
 </div>
+<div class="ui-tile ui-crop-top">
+<span class="ui-kicker">Quick Action</span>
+<strong>Send Q4 Deck</strong>
+<div class="ui-btn-row"><span class="ui-pill-btn">Approve</span><span class="ui-pill-ghost">Edit</span></div>
+</div>
+<div class="ui-tile">
+<span class="ui-kicker">Best Route</span>
+<strong>08:40 Express</strong>
+<p>Direct · 2h 15m · Window seat</p>
+</div>
+<div class="ui-tile">
+<span class="ui-kicker">Checklist · 3/4</span>
+<ul class="ui-checks"><li class="done">Export Q4 numbers</li><li class="done">Summarize tab notes</li><li>Share final brief</li></ul>
+</div>
+<div class="ui-tile ui-crop-bottom">
+<span class="ui-kicker">File Digest</span>
+<strong>Weekend-notes.md</strong>
+<p>3 key highlights pulled automatically</p>
 </div>
 </div>
 </div>
@@ -136,35 +106,23 @@
 </article>
 
 <article class="feature-slide" id="feature-control" data-feature-slide="3" aria-hidden="true">
-<div class="feature-stage stage-sage">
-<div class="feature-window" aria-hidden="true">
-<aside class="fw-sidebar">
-<div class="fw-pill-top"><span class="fw-ico">⌖</span> Computer Control</div>
-<div class="fw-select"><span>input: mouse &amp; keys</span><span>↕</span></div>
-<div class="fw-search-row"><div class="fw-search">Action log…</div><span class="fw-mini-btn">⏸</span></div>
-<ul class="fw-nav">
-<li class="is-current"><span class="fw-dot-ico"></span>Live Session</li>
-<li><span class="fw-dot-ico"></span>Desktop Apps</li>
-<li><span class="fw-dot-ico"></span>Browser Actions</li>
-<li><span class="fw-dot-ico"></span>Take Over</li>
+<div class="feature-stage vis-control" aria-hidden="true">
+<div class="ctrl-left">
+<div class="ctrl-input"><span>Q4_Report_Final.csv</span><i class="ctrl-caret"></i></div>
+<div class="ctrl-action-row">
+<span class="ctrl-btn-target">Export CSV</span>
+<svg class="ctrl-cursor" viewBox="0 0 28 28" fill="none"><path d="M6 3l16 10-7.2 1.6L11.5 22 6 3z" fill="#1b2f66" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/></svg>
+</div>
+<div class="ctrl-keys"><kbd>Ctrl</kbd><span>+</span><kbd>S</kbd><span class="ctrl-hint">Saved to Drive</span></div>
+</div>
+<div class="ctrl-right">
+<div class="ctrl-status"><span class="ctrl-pulse"></span>Controlling desktop</div>
+<ul class="ctrl-steps">
+<li class="is-done">Click “Export CSV” in Excel</li>
+<li class="is-done">Type filename &amp; press Ctrl + S</li>
+<li class="is-now">Upload report to Shared Drive…</li>
 </ul>
-</aside>
-<div class="fw-main">
-<div class="fw-toolbar">
-<span class="fw-tool-btn">Mouse · Active</span>
-<span class="fw-tool-btn">Keyboard · Active</span>
-<span class="fw-tool-primary">Pause Control</span>
-<span class="fw-tool-meta">Hands-free execution</span>
-</div>
-<div class="fw-prompt-bar"><span class="fw-badge">Executing</span> Exporting spreadsheet, renaming file, and uploading to Drive…</div>
-<div class="fw-table">
-<div class="fw-row fw-head"><span></span><span>action</span><span>input</span><span>target app</span><span>state</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Click “Export CSV”</span><span>Mouse</span><span>Excel</span><span><em class="fw-pill ok">Completed</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Type “Q4_Final.csv”</span><span>Keyboard</span><span>Save Dialog</span><span><em class="fw-pill ok">Completed</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Press Ctrl + S</span><span>Hotkey</span><span>Windows</span><span><em class="fw-pill ok">Completed</em></span></div>
-<div class="fw-row"><span class="fw-check"></span><span>Drag &amp; upload report</span><span>Cursor</span><span>Chrome · Drive</span><span><em class="fw-pill live">In progress</em></span></div>
-</div>
-</div>
+<span class="ctrl-takeover">Move mouse anytime to take over</span>
 </div>
 </div>
 <div class="feature-caption">
@@ -174,35 +132,22 @@
 </article>
 
 <article class="feature-slide" id="feature-security" data-feature-slide="4" aria-hidden="true">
-<div class="feature-stage stage-slate">
-<div class="feature-window" aria-hidden="true">
-<aside class="fw-sidebar">
-<div class="fw-pill-top"><span class="fw-ico">◈</span> Security Agent</div>
-<div class="fw-select"><span>guard: enforced</span><span>↕</span></div>
-<div class="fw-search-row"><div class="fw-search">Search policies…</div><span class="fw-mini-btn">↻</span></div>
-<ul class="fw-nav">
-<li class="is-current"><span class="fw-dot-ico"></span>Active Guard</li>
-<li><span class="fw-dot-ico"></span>Backend Rules</li>
-<li><span class="fw-dot-ico"></span>Blocked Paths</li>
-<li><span class="fw-dot-ico"></span>Audit Log</li>
-</ul>
-</aside>
-<div class="fw-main">
-<div class="fw-toolbar">
-<span class="fw-tool-btn">Backend Policy</span>
-<span class="fw-tool-btn">Zero Trust</span>
-<span class="fw-tool-primary">Shield Active</span>
-<span class="fw-tool-meta">Real-time verification</span>
+<div class="feature-stage vis-security" aria-hidden="true">
+<div class="sec-grid-bg"></div>
+<div class="sec-col sec-left">
+<div class="sec-pill is-ok"><span class="sec-mark">✓</span><div><strong>~/Projects/Q4</strong><small>Scoped access · Allowed</small></div></div>
+<div class="sec-pill is-block"><span class="sec-mark">✕</span><div><strong>.env &amp; API Keys</strong><small>Credential lock · Blocked</small></div></div>
 </div>
-<div class="fw-prompt-bar"><span class="fw-badge">Guard</span> Every tool call and file action is validated by backend security logic.</div>
-<div class="fw-table">
-<div class="fw-row fw-head"><span></span><span>checked action</span><span>layer</span><span>policy</span><span>result</span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Read ~/Projects/Q4</span><span>Backend</span><span>Scoped workspace</span><span><em class="fw-pill ok">Allowed</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Access .env &amp; tokens</span><span>Security Agent</span><span>Credential lock</span><span><em class="fw-pill block">Blocked</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Modify system folder</span><span>Backend</span><span>OS boundary</span><span><em class="fw-pill block">Blocked</em></span></div>
-<div class="fw-row"><span class="fw-check is-checked"></span><span>Send external email</span><span>Security Agent</span><span>User approval</span><span><em class="fw-pill live">Verified</em></span></div>
+<div class="sec-core">
+<div class="sec-ring"></div>
+<div class="sec-shield">
+<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l10 4v8c0 6.5-4.3 11.7-10 14-5.7-2.3-10-7.5-10-14V7l10-4z"/><path d="M11.5 16.5l3 3 6-6.5"/></svg>
 </div>
+<span class="sec-label">Security Agent Active</span>
 </div>
+<div class="sec-col sec-right">
+<div class="sec-pill is-ok"><span class="sec-mark">✓</span><div><strong>Backend Policy</strong><small>Every action verified</small></div></div>
+<div class="sec-pill is-block"><span class="sec-mark">✕</span><div><strong>System32 &amp; OS</strong><small>Boundary guard · Locked</small></div></div>
 </div>
 </div>
 <div class="feature-caption">
@@ -210,6 +155,7 @@
 <p>A dedicated security agent actively guards every operation using backend policy logic—verifying actions, blocking sensitive paths, and keeping everything safely in its place.</p>
 </div>
 </article>
+
 </div>
 <div class="feature-dots" role="tablist" aria-label="Choose a feature" aria-orientation="vertical">
 <button type="button" role="tab" aria-selected="true" aria-controls="feature-context" aria-label="Full Context" data-feature-dot="0"></button>
