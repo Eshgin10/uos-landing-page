@@ -182,10 +182,10 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  uniform float uTime,uPulse,uListen;
  uniform vec2 uMouse;
  vec3 palette(float t){
-  vec3 c1=vec3(0.06,0.18,0.65);
-  vec3 c2=vec3(0.11,0.31,0.88);
-  vec3 c3=vec3(0.36,0.59,1.00);
-  vec3 c4=vec3(0.56,0.42,0.98);
+  vec3 c1=vec3(0.11,0.34,0.98);
+  vec3 c2=vec3(0.28,0.68,1.00);
+  vec3 c3=vec3(0.55,0.44,1.00);
+  vec3 c4=vec3(0.16,0.85,1.00);
   float s=fract(t);
   if(s<.33)return mix(c1,c2,s*3.);
   if(s<.66)return mix(c2,c3,(s-.33)*3.);
@@ -196,35 +196,33 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   float r=length(uv);
   if(r>1.0)discard;
   float z=sqrt(max(0.0,1.0-r*r));
-  vec2 refractUv=uv*(1.0-0.22*(1.0-z))+uMouse*0.18;
+  vec2 refractUv=uv*(1.0-0.24*(1.0-z))+uMouse*0.18;
   float angle=atan(refractUv.y,refractUv.x);
   float rad=length(refractUv);
-  float t=uTime*0.85;
-  float swell=1.0+0.14*sin(t*2.1)*uListen+uPulse*0.26;
+  float t=uTime*0.9;
+  float swell=1.0+0.15*sin(t*2.1)*uListen+uPulse*0.28;
   vec3 strands=vec3(0.0);
   for(int i=0;i<6;i++){
    float fi=float(i);
-   float phase=fi*1.047+t*(0.65+fi*0.09);
+   float phase=fi*1.047+t*(0.68+fi*0.09);
    float wave=sin(angle*2.0+rad*4.8-phase)*0.22*swell+cos(angle*3.0-rad*3.2+phase*0.8)*0.12;
    float dist=abs(rad-0.36-wave-0.06*sin(fi+t*1.3));
-   float glow=0.022/(dist*dist+0.0085);
-   strands+=palette(fi*0.17+t*0.08+rad*0.25)*glow*0.24;
+   float glow=0.024/(dist*dist+0.0075);
+   strands+=palette(fi*0.17+t*0.08+rad*0.25)*glow*0.28;
   }
-  float core=exp(-rad*rad*4.2)*0.75*swell;
-  vec3 coreCol=mix(vec3(0.18,0.42,0.98),vec3(0.76,0.89,1.0),core);
-  vec3 glassBase=vec3(0.95,0.97,1.0);
-  vec3 col=mix(glassBase,coreCol+strands,clamp(length(strands)*0.65+core*0.55,0.0,0.92));
-  float fresnel=pow(1.0-z,3.0);
+  float core=exp(-rad*rad*4.0)*0.85*swell;
+  vec3 glassBase=mix(vec3(0.03,0.07,0.24),vec3(0.08,0.19,0.56),z);
+  vec3 col=glassBase+strands*0.95+vec3(0.45,0.75,1.0)*core*0.65;
+  float fresnel=pow(1.0-z,2.6);
   vec3 dispersion=vec3(
-   smoothstep(0.55,1.0,r+0.025),
+   smoothstep(0.55,1.0,r+0.03),
    smoothstep(0.58,1.0,r),
-   smoothstep(0.52,1.0,r-0.025)
-  )*vec3(0.45,0.68,1.0)*fresnel*0.85;
-  float spec=pow(max(0.0,dot(normalize(vec3(uv,z)),normalize(vec3(-0.45,0.6,0.75)))),28.0);
-  col+=dispersion+vec3(1.0)*spec*0.65+vec3(0.75,0.88,1.0)*fresnel*0.35;
+   smoothstep(0.52,1.0,r-0.03)
+  )*vec3(0.42,0.74,1.0)*fresnel*1.15;
+  float spec=pow(max(0.0,dot(normalize(vec3(uv,z)),normalize(vec3(-0.45,0.6,0.75)))),32.0);
+  col+=dispersion+vec3(1.0)*spec*0.78+vec3(0.32,0.58,1.0)*fresnel*0.42;
   float edge=smoothstep(1.0,0.955,r);
-  float alpha=edge*(0.88+0.12*fresnel);
-  gl_FragColor=vec4(col*alpha,alpha);
+  gl_FragColor=vec4(col*edge,edge);
  }`;
  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
  const prog=gl.createProgram();
