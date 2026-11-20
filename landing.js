@@ -169,3 +169,113 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   }
  });
 });
+
+// ReactBits-inspired WebGL "Strands" frosted-glass orb for Voice Control
+(function initStrandsOrb(){
+ const canvas=document.getElementById('strands-orb');
+ if(!canvas)return;
+ const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true});
+ if(!gl)return;
+ const vs=`attribute vec2 p;varying vec2 vUv;void main(){vUv=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
+ const fs=`precision highp float;
+ varying vec2 vUv;
+ uniform float uTime,uPulse,uListen;
+ uniform vec2 uMouse;
+ vec3 palette(float t){
+  vec3 c1=vec3(0.06,0.18,0.65);
+  vec3 c2=vec3(0.11,0.31,0.88);
+  vec3 c3=vec3(0.36,0.59,1.00);
+  vec3 c4=vec3(0.56,0.42,0.98);
+  float s=fract(t);
+  if(s<.33)return mix(c1,c2,s*3.);
+  if(s<.66)return mix(c2,c3,(s-.33)*3.);
+  return mix(c3,c4,(s-.66)*3.);
+ }
+ void main(){
+  vec2 uv=(vUv-.5)*2.0;
+  float r=length(uv);
+  if(r>1.0)discard;
+  float z=sqrt(max(0.0,1.0-r*r));
+  vec2 refractUv=uv*(1.0-0.22*(1.0-z))+uMouse*0.18;
+  float angle=atan(refractUv.y,refractUv.x);
+  float rad=length(refractUv);
+  float t=uTime*0.85;
+  float swell=1.0+0.14*sin(t*2.1)*uListen+uPulse*0.26;
+  vec3 strands=vec3(0.0);
+  for(int i=0;i<6;i++){
+   float fi=float(i);
+   float phase=fi*1.047+t*(0.65+fi*0.09);
+   float wave=sin(angle*2.0+rad*4.8-phase)*0.22*swell+cos(angle*3.0-rad*3.2+phase*0.8)*0.12;
+   float dist=abs(rad-0.36-wave-0.06*sin(fi+t*1.3));
+   float glow=0.022/(dist*dist+0.0085);
+   strands+=palette(fi*0.17+t*0.08+rad*0.25)*glow*0.24;
+  }
+  float core=exp(-rad*rad*4.2)*0.75*swell;
+  vec3 coreCol=mix(vec3(0.18,0.42,0.98),vec3(0.76,0.89,1.0),core);
+  vec3 glassBase=vec3(0.95,0.97,1.0);
+  vec3 col=mix(glassBase,coreCol+strands,clamp(length(strands)*0.65+core*0.55,0.0,0.92));
+  float fresnel=pow(1.0-z,3.0);
+  vec3 dispersion=vec3(
+   smoothstep(0.55,1.0,r+0.025),
+   smoothstep(0.58,1.0,r),
+   smoothstep(0.52,1.0,r-0.025)
+  )*vec3(0.45,0.68,1.0)*fresnel*0.85;
+  float spec=pow(max(0.0,dot(normalize(vec3(uv,z)),normalize(vec3(-0.45,0.6,0.75)))),28.0);
+  col+=dispersion+vec3(1.0)*spec*0.65+vec3(0.75,0.88,1.0)*fresnel*0.35;
+  float edge=smoothstep(1.0,0.955,r);
+  float alpha=edge*(0.88+0.12*fresnel);
+  gl_FragColor=vec4(col*alpha,alpha);
+ }`;
+ function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
+ const prog=gl.createProgram();
+ gl.attachShader(prog,compile(gl.VERTEX_SHADER,vs));
+ gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,fs));
+ gl.linkProgram(prog);
+ gl.useProgram(prog);
+ const buf=gl.createBuffer();
+ gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+ gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+ const loc=gl.getAttribLocation(prog,'p');
+ gl.enableVertexAttribArray(loc);
+ gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+ const uTime=gl.getUniformLocation(prog,'uTime');
+ const uMouse=gl.getUniformLocation(prog,'uMouse');
+ const uPulse=gl.getUniformLocation(prog,'uPulse');
+ const uListen=gl.getUniformLocation(prog,'uListen');
+ let mx=0,my=0,tx=0,ty=0,pulse=0,start=performance.now(),visible=true;
+ function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const w=Math.max(1,Math.round(canvas.clientWidth*dpr));
+  const h=Math.max(1,Math.round(canvas.clientHeight*dpr));
+  if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
+  gl.viewport(0,0,w,h);
+ }
+ canvas.addEventListener('pointermove',e=>{
+  const r=canvas.getBoundingClientRect();
+  tx=((e.clientX-r.left)/r.width-.5)*2;
+  ty=-(((e.clientY-r.top)/r.height-.5)*2);
+ });
+ canvas.addEventListener('pointerleave',()=>{tx=0;ty=0;});
+ canvas.addEventListener('click',()=>{pulse=1;});
+ if('IntersectionObserver' in window){
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{threshold:.05}).observe(canvas);
+ }
+ window.addEventListener('resize',resize,{passive:true});
+ resize();
+ function frame(now){
+  requestAnimationFrame(frame);
+  if(!visible&&!reducedMotion?.matches)return;
+  resize();
+  mx+=(tx-mx)*0.08;my+=(ty-my)*0.08;pulse*=0.93;
+  const elapsed=reducedMotion?.matches?1.2:(now-start)*0.001;
+  const listen=0.65+0.35*Math.sin(elapsed*1.7)*Math.cos(elapsed*0.9);
+  gl.clearColor(0,0,0,0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.uniform1f(uTime,elapsed);
+  gl.uniform2f(uMouse,mx,my);
+  gl.uniform1f(uPulse,pulse);
+  gl.uniform1f(uListen,listen);
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+ }
+ requestAnimationFrame(frame);
+})();

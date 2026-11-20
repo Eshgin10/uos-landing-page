@@ -5,7 +5,7 @@
 <title>Utopia (UOS) — Your personal AI operating layer for Windows</title>
 <meta name="description" content="Utopia (UOS) is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
 <link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#1c4fe0"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=15"><script src="landing.js?v=6" defer></script>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=16"><script src="landing.js?v=7" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -29,7 +29,23 @@
 <div class="features-layout">
 <div class="feature-card" aria-live="polite">
 
-<article class="feature-slide is-active" id="feature-context" data-feature-slide="0" aria-hidden="false">
+<article class="feature-slide is-active" id="feature-voice" data-feature-slide="0" aria-hidden="false">
+<div class="feature-copy">
+<span class="feature-kicker">01 / 06</span>
+<h3>Voice Control</h3>
+<p>Speak naturally and let Utopia listen, understand, and act—turning spoken thoughts into live desktop actions, file edits, and visual answers without lifting a finger.</p>
+</div>
+<div class="feature-stage vis-voice">
+<canvas id="strands-orb" class="strands-canvas" aria-label="Interactive animated voice strands orb"></canvas>
+</div>
+</article>
+
+<article class="feature-slide" id="feature-context" data-feature-slide="1" aria-hidden="true">
+<div class="feature-copy">
+<span class="feature-kicker">02 / 06</span>
+<h3>Full Context</h3>
+<p>UOS connects directly to your Windows folders, installed Start-menu apps, and paired Chrome tabs—so you can ask naturally without hunting for file paths or giving explicit directions.</p>
+</div>
 <div class="feature-stage vis-context" aria-hidden="true">
 <div class="ctx-squircles">
 <div class="ctx-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg><span>Files</span></div>
@@ -43,13 +59,14 @@
 <span class="ctx-pill">4 sources linked</span>
 </div>
 </div>
-<div class="feature-caption">
-<h3>Full Context</h3>
-<p>UOS connects directly to your Windows folders, installed Start-menu apps, and paired Chrome tabs—so you can ask naturally without hunting for file paths or giving explicit directions.</p>
-</div>
 </article>
 
-<article class="feature-slide" id="feature-agents" data-feature-slide="1" aria-hidden="true">
+<article class="feature-slide" id="feature-agents" data-feature-slide="2" aria-hidden="true">
+<div class="feature-copy">
+<span class="feature-kicker">03 / 06</span>
+<h3>Agentic Work</h3>
+<p>An orchestrated coordinator runs multi-step work in the background—combining local tools, live sourced research, and automatic model routing so you just ask for the outcome you want.</p>
+</div>
 <div class="feature-stage vis-agents" aria-hidden="true">
 <div class="ag-stack">
 <div class="ag-toast is-top">
@@ -66,13 +83,14 @@
 </div>
 </div>
 </div>
-<div class="feature-caption">
-<h3>Agentic Work</h3>
-<p>An orchestrated coordinator runs multi-step work in the background—combining local tools, live sourced research, and automatic model routing so you just ask for the outcome you want.</p>
-</div>
 </article>
 
-<article class="feature-slide" id="feature-ui" data-feature-slide="2" aria-hidden="true">
+<article class="feature-slide" id="feature-ui" data-feature-slide="3" aria-hidden="true">
+<div class="feature-copy">
+<span class="feature-kicker">04 / 06</span>
+<h3>Dynamically Generated Interface</h3>
+<p>See results visually without opening extra apps or switching tabs. Utopia generates a tailored interface on the fly so every answer is clear, interactive, and easy to act on.</p>
+</div>
 <div class="feature-stage vis-ui" aria-hidden="true">
 <div class="ui-masonry">
 <div class="ui-tile ui-crop-top">
@@ -106,13 +124,14 @@
 </div>
 </div>
 </div>
-<div class="feature-caption">
-<h3>Dynamically Generated Interface</h3>
-<p>See results visually without opening extra apps or switching tabs. Utopia generates a tailored interface on the fly so every answer is clear, interactive, and easy to act on.</p>
-</div>
 </article>
 
-<article class="feature-slide" id="feature-control" data-feature-slide="3" aria-hidden="true">
+<article class="feature-slide" id="feature-control" data-feature-slide="4" aria-hidden="true">
+<div class="feature-copy">
+<span class="feature-kicker">05 / 06</span>
+<h3>Computer Control</h3>
+<p>Utopia can operate your keyboard and mouse to navigate desktop apps, fill forms, and complete multi-step workflows on your behalf—while you stay in charge.</p>
+</div>
 <div class="feature-stage vis-control" aria-hidden="true">
 <div class="ctrl-left">
 <div class="ctrl-input"><span>Q4_Report_Final.csv</span><i class="ctrl-caret"></i></div>
@@ -132,15 +151,15 @@
 <span class="ctrl-takeover">Move mouse anytime to take over</span>
 </div>
 </div>
-<div class="feature-caption">
-<h3>Computer Control</h3>
-<p>Utopia can operate your keyboard and mouse to navigate desktop apps, fill forms, and complete multi-step workflows on your behalf—while you stay in charge.</p>
-</div>
 </article>
 
-<article class="feature-slide" id="feature-security" data-feature-slide="4" aria-hidden="true">
+<article class="feature-slide" id="feature-security" data-feature-slide="5" aria-hidden="true">
+<div class="feature-copy">
+<span class="feature-kicker">06 / 06</span>
+<h3>Security</h3>
+<p>Active backend security logic, encrypted Windows device credentials, strict folder boundaries, and a 256-bit localhost Chrome bridge keep sensitive paths locked and everything in its place.</p>
+</div>
 <div class="feature-stage vis-security" aria-hidden="true">
-<div class="sec-grid-bg"></div>
 <div class="sec-col sec-left">
 <div class="sec-pill is-ok"><span class="sec-mark">✓</span><div><strong>~/Projects/Q4</strong><small>Scoped access · Allowed</small></div></div>
 <div class="sec-pill is-block"><span class="sec-mark">✕</span><div><strong>.env &amp; API Keys</strong><small>Credential lock · Blocked</small></div></div>
@@ -157,19 +176,16 @@
 <div class="sec-pill is-block"><span class="sec-mark">✕</span><div><strong>System32 &amp; OS</strong><small>Boundary guard · Locked</small></div></div>
 </div>
 </div>
-<div class="feature-caption">
-<h3>Security</h3>
-<p>Active backend security logic, encrypted Windows device credentials, strict folder boundaries, and a 256-bit localhost Chrome bridge keep sensitive paths locked and everything in its place.</p>
-</div>
 </article>
 
 </div>
 <div class="feature-dots" role="tablist" aria-label="Choose a feature" aria-orientation="vertical">
-<button type="button" role="tab" aria-selected="true" aria-controls="feature-context" aria-label="Full Context" data-feature-dot="0"></button>
-<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-agents" aria-label="Agentic Work" data-feature-dot="1"></button>
-<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-ui" aria-label="Dynamically Generated Interface" data-feature-dot="2"></button>
-<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-control" aria-label="Computer Control" data-feature-dot="3"></button>
-<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-security" aria-label="Security" data-feature-dot="4"></button>
+<button type="button" role="tab" aria-selected="true" aria-controls="feature-voice" aria-label="Voice Control" data-feature-dot="0"></button>
+<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-context" aria-label="Full Context" data-feature-dot="1"></button>
+<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-agents" aria-label="Agentic Work" data-feature-dot="2"></button>
+<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-ui" aria-label="Dynamically Generated Interface" data-feature-dot="3"></button>
+<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-control" aria-label="Computer Control" data-feature-dot="4"></button>
+<button type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="feature-security" aria-label="Security" data-feature-dot="5"></button>
 </div>
 </div>
 </div>
