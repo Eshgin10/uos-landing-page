@@ -356,7 +356,7 @@ body{background:var(--page);color:var(--ink)}
 .cta-card::before{background:radial-gradient(circle,#7eb2ff55,transparent 68%)}
 .cta-card::after{background:radial-gradient(circle,#5c97ff44,transparent 68%)}
 .cta-product img{background:#e6efff}
-.site-footer{background:linear-gradient(180deg,#081645cc 0%,#0b1e5c78 26%,transparent 56%,#07123866 100%),url('assets/footer-starfield.jpg') center 62%/cover no-repeat;color:#f4f7ff}
+.site-footer{background:linear-gradient(180deg,#081645cc 0%,#0b1e5c78 26%,transparent 56%,#07123866 100%),url('assets/footer-starfield.jpg?v=2') center 74%/cover no-repeat;color:#f4f7ff}
 .footer-brand .wordmark,.footer-column h2{color:#ffffff}
 .footer-brand p,.footer-column{color:#dbe7ff}
 .footer-column a:hover{color:#ffffff}
