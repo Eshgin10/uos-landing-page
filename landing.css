@@ -630,3 +630,18 @@ body{background:var(--page);color:var(--ink)}
 .footer-wordmark-display span{color:#ffffffed;text-shadow:0 8px 34px #071a0e66}
 .footer-bottom{border-top-color:#ffffff30;color:#eef6ec}
 .footer-bottom-links a:hover{color:#ffffff}
+
+/* Multi-layer sticky stacking sheets: Hero -> Demo -> Features -> FAQ -> Footer */
+.stack-layer{position:sticky;top:0;min-height:100svh;border-radius:32px 32px 0 0;box-shadow:0 -26px 76px #0b241628;padding:clamp(40px,5vw,76px) clamp(24px,5.5vw,84px) clamp(88px,10vw,140px);scroll-margin-top:0}
+.layer-demo{z-index:2;background:#f6f7ee}
+.layer-features{z-index:3;background:#eef3e6;box-shadow:0 -26px 76px #0b24162e}
+.layer-faq{z-index:4;background:#f6f7ee;box-shadow:0 -26px 76px #0b24162a}
+.site-footer.unified-footer{position:relative;z-index:5}
+.layer-inner{max-width:1200px;margin:0 auto}
+.layer-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:24px;margin-bottom:clamp(28px,4vw,52px);border-bottom:1px solid #142e2016;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.layer-meta span:last-child{color:var(--muted);letter-spacing:.08em}
+.layer-features .ed-chapter{max-width:none;margin:0 0 clamp(104px,12vw,160px)}
+.layer-features .ed-chapter-last{margin-bottom:0}
+.layer-faq .uos-faq-intro{position:static}
+.layer-faq .uos-faq-intro h2{margin-bottom:18px}
+@media(max-width:680px){.stack-layer{border-radius:24px 24px 0 0;padding:32px 20px 72px}}

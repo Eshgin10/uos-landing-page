@@ -763,3 +763,22 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  },{rootMargin:'-25% 0px -55% 0px',threshold:0.01});
  links.forEach(a=>{const sec=document.getElementById(a.dataset.chapter);if(sec)io.observe(sec);});
 })();
+
+// Dynamic sticky top calculation so tall stacking layers scroll fully before pinning under the next layer
+(function initStackLayers(){
+ const layers=[...document.querySelectorAll('.stack-layer')];
+ if(!layers.length)return;
+ function updateTops(){
+  const vh=window.innerHeight;
+  layers.forEach(layer=>{
+   const offset=Math.min(0,Math.round(vh-layer.offsetHeight));
+   layer.style.top=`${offset}px`;
+  });
+ }
+ updateTops();
+ window.addEventListener('resize',updateTops,{passive:true});
+ if('ResizeObserver' in window){
+  const ro=new ResizeObserver(updateTops);
+  layers.forEach(layer=>ro.observe(layer));
+ }
+})();
