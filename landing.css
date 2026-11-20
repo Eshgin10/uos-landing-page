@@ -363,7 +363,7 @@ body{background:var(--page);color:var(--ink)}
 .footer-landscape span{color:#ffffffeb;text-shadow:0 8px 34px #06113666}
 
 /* Unified full-bleed starfield footer in big unobstructed format */
-.site-footer.unified-footer{display:flex;flex-direction:column;min-height:clamp(680px,84svh,940px);padding:clamp(44px,5vw,72px) clamp(16px,4vw,52px) 28px;background:linear-gradient(180deg,#07133d78 0%,transparent 28%,transparent 78%,#0610335c 100%),url('assets/footer-starfield.jpg?v=2') center bottom/cover no-repeat;color:#f4f7ff;overflow:hidden}
+.site-footer.unified-footer{display:flex;flex-direction:column;min-height:clamp(680px,84svh,940px);padding:clamp(44px,5vw,72px) clamp(16px,4vw,52px) 28px;background:linear-gradient(180deg,#0c211675 0%,transparent 28%,transparent 76%,#08190e78 100%),url('assets/footer-meadow.jpg') center 62%/cover no-repeat;color:#f6faf4;overflow:hidden}
 .footer-shell{width:100%;max-width:1280px;flex:1;margin:0 auto;padding:0;display:flex;flex-direction:column;background:none;border:0;border-radius:0;box-shadow:none}
 .footer-columns{display:grid;grid-template-columns:minmax(220px,1.55fr) repeat(4,minmax(110px,.75fr));gap:36px 28px;padding:8px 8px 32px}
 .unified-footer .footer-brand .wordmark{font-size:32px;letter-spacing:-2px;color:#ffffff}
