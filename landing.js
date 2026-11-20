@@ -915,3 +915,30 @@ faqItems.forEach(details=>{
   notes.forEach(n=>n.classList.remove('sc-await'));
  }
 })();
+
+// 4-card expanding scenic accordion for Features
+(function initFeatAccordion(){
+ const wrap=document.getElementById('feat-accordion');
+ if(!wrap)return;
+ const panels=[...wrap.querySelectorAll('[data-feat-panel]')];
+ if(!panels.length)return;
+ function activate(idx){
+  panels.forEach((p,i)=>{
+   const on=i===idx;
+   p.classList.toggle('is-active',on);
+   p.setAttribute('aria-selected',String(on));
+   p.tabIndex=on?0:-1;
+  });
+ }
+ panels.forEach((p,i)=>{
+  p.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')activate(i);});
+  p.addEventListener('click',()=>activate(i));
+  p.addEventListener('keydown',e=>{
+   if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;
+   e.preventDefault();
+   const next=e.key==='Home'?0:e.key==='End'?panels.length-1:(i+(e.key==='ArrowRight'?1:panels.length-1))%panels.length;
+   activate(next);
+   panels[next].focus();
+  });
+ });
+})();
