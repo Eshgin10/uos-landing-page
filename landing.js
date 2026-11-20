@@ -816,7 +816,7 @@ faqItems.forEach(details=>{
   ctx.setTransform(dpr,0,0,dpr,0,0);
  }
  function ensureLoop(){if(rafId===null)rafId=requestAnimationFrame(tick);}
- function emitCoalesce(el,count=42){
+ function emitCoalesce(el,count=130){
   resize();
   const cRect=canvas.getBoundingClientRect();
   const r=el.getBoundingClientRect();
@@ -826,18 +826,19 @@ faqItems.forEach(details=>{
    const tx=ox+Math.random()*r.width;
    const ty=oy+Math.random()*r.height;
    const angle=Math.random()*Math.PI*2;
-   const spread=36+Math.random()*92;
+   const spread=24+Math.random()*82;
    particles.push({
     sx:tx+Math.cos(angle)*spread,
-    sy:ty+Math.sin(angle)*spread+18,
+    sy:ty+Math.sin(angle)*spread+14,
     tx,ty,
-    driftX:(Math.random()-.5)*26,
-    driftY:-18-Math.random()*32,
-    size:1.8+Math.random()*2.8,
+    swirl:(Math.random()-.5)*22,
+    driftX:(Math.random()-.5)*20,
+    driftY:-14-Math.random()*28,
+    size:0.7+Math.random()*1.05,
     color:palette[Math.floor(Math.random()*palette.length)],
-    born:now+Math.random()*160,
-    gather:440+Math.random()*220,
-    fade:380+Math.random()*220
+    born:now+Math.random()*220,
+    gather:520+Math.random()*280,
+    fade:440+Math.random()*280
    });
   }
   ensureLoop();
@@ -848,18 +849,19 @@ faqItems.forEach(details=>{
   const r=el.getBoundingClientRect();
   const ox=r.left-cRect.left,oy=r.top-cRect.top;
   const now=performance.now();
-  for(let i=0;i<10;i++){
+  for(let i=0;i<26;i++){
    const x=ox+Math.random()*r.width;
-   const y=oy+Math.random()*r.height*0.45;
+   const y=oy+Math.random()*r.height*0.55;
    particles.push({
     sx:x,sy:y,tx:x,ty:y,
-    driftX:(Math.random()-.5)*28,
-    driftY:-24-Math.random()*34,
-    size:1.6+Math.random()*2.2,
+    swirl:0,
+    driftX:(Math.random()-.5)*22,
+    driftY:-18-Math.random()*30,
+    size:0.65+Math.random()*0.95,
     color:palette[Math.floor(Math.random()*palette.length)],
-    born:now+Math.random()*70,
+    born:now+Math.random()*110,
     gather:1,
-    fade:540+Math.random()*240
+    fade:620+Math.random()*300
    });
   }
   ensureLoop();
@@ -873,21 +875,22 @@ faqItems.forEach(details=>{
    if(elapsed<p.gather){
     const u=elapsed/p.gather;
     const ease=1-Math.pow(1-u,3);
-    const x=p.sx+(p.tx-p.sx)*ease;
-    const y=p.sy+(p.ty-p.sy)*ease;
-    const alpha=Math.sin(u*Math.PI*0.85)*0.92;
+    const arc=Math.sin(u*Math.PI)*p.swirl;
+    const x=p.sx+(p.tx-p.sx)*ease+arc;
+    const y=p.sy+(p.ty-p.sy)*ease-Math.abs(arc)*0.35;
+    const alpha=Math.sin(u*Math.PI*0.88)*0.72;
     ctx.globalAlpha=Math.max(0,alpha);
     ctx.fillStyle=p.color;
-    ctx.beginPath();ctx.arc(x,y,p.size*(0.65+0.45*ease),0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,p.size*(0.7+0.35*ease),0,Math.PI*2);ctx.fill();
    }else{
     const fe=(elapsed-p.gather)/p.fade;
     if(fe>=1){particles.splice(i,1);continue;}
     const ease=1-Math.pow(1-fe,2);
     const x=p.tx+p.driftX*ease;
     const y=p.ty+p.driftY*ease;
-    ctx.globalAlpha=Math.max(0,(1-fe)*0.85);
+    ctx.globalAlpha=Math.max(0,(1-fe)*0.65);
     ctx.fillStyle=p.color;
-    ctx.beginPath();ctx.arc(x,y,p.size*(1-fe*0.5),0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,p.size*(1-fe*0.45),0,Math.PI*2);ctx.fill();
    }
   }
   ctx.globalAlpha=1;
@@ -903,8 +906,8 @@ faqItems.forEach(details=>{
    io.disconnect();
    notes.forEach((n,i)=>{
     setTimeout(()=>{
-     emitCoalesce(n,44);
-     setTimeout(()=>{n.classList.remove('sc-await');n.classList.add('sc-forming');},220);
+     emitCoalesce(n,130);
+     setTimeout(()=>{n.classList.remove('sc-await');n.classList.add('sc-forming');},240);
     },i*210);
    });
   },{threshold:.15});
