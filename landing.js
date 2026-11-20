@@ -132,3 +132,40 @@ if(heroStage&&!reducedMotion?.matches){
  window.addEventListener('resize',onHeroScroll,{passive:true});
  syncHeroScroll();
 }
+
+// Smooth open and close animation for FAQ accordion items
+document.querySelectorAll('.uos-faq-list details').forEach(details=>{
+ const summary=details.querySelector('summary');
+ const content=details.querySelector('p');
+ if(!summary||!content)return;
+ let anim=null,isClosing=false,isExpanding=false;
+ summary.addEventListener('click',event=>{
+  if(reducedMotion?.matches||!details.animate)return;
+  event.preventDefault();
+  details.style.overflow='hidden';
+  if(isClosing||!details.open){
+   details.style.height=`${details.offsetHeight}px`;
+   details.open=true;
+   details.classList.remove('is-closing');
+   requestAnimationFrame(()=>{
+    isExpanding=true;
+    const startHeight=`${details.offsetHeight}px`;
+    const endHeight=`${summary.offsetHeight+content.offsetHeight}px`;
+    anim?.cancel();
+    anim=details.animate({height:[startHeight,endHeight]},{duration:320,easing:'cubic-bezier(.22,1,.36,1)'});
+    content.animate([{opacity:0,transform:'translateY(-6px)'},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:'cubic-bezier(.22,1,.36,1)'});
+    anim.onfinish=()=>{details.style.height='';details.style.overflow='';isExpanding=false;anim=null;};
+    anim.oncancel=()=>{isExpanding=false;};
+   });
+  }else if(isExpanding||details.open){
+   isClosing=true;
+   details.classList.add('is-closing');
+   const startHeight=`${details.offsetHeight}px`;
+   const endHeight=`${summary.offsetHeight}px`;
+   anim?.cancel();
+   anim=details.animate({height:[startHeight,endHeight]},{duration:260,easing:'cubic-bezier(.22,1,.36,1)'});
+   anim.onfinish=()=>{details.open=false;details.classList.remove('is-closing');details.style.height='';details.style.overflow='';isClosing=false;anim=null;};
+   anim.oncancel=()=>{isClosing=false;};
+  }
+ });
+});

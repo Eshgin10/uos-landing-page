@@ -5,7 +5,7 @@
 <title>Utopia (UOS) — Your personal AI operating layer for Windows</title>
 <meta name="description" content="Utopia (UOS) is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
 <link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#1c4fe0"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=14"><script src="landing.js?v=5" defer></script>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=15"><script src="landing.js?v=6" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -182,16 +182,38 @@
 </div>
 <div class="uos-steps-grid">
 <article class="uos-step-card">
+<div class="uos-step-vis step-vis-install" aria-hidden="true">
+<div class="sv-dialog">
+<div class="sv-dialog-top"><img src="assets/utopia-mark.png" alt=""><span>Utopia Setup</span><small>v0.19.11</small></div>
+<div class="sv-dialog-row"><span class="sv-lock">◈</span><span>Encrypted locally · No account</span></div>
+<span class="sv-btn">Agree &amp; start</span>
+</div>
+</div>
 <span class="uos-step-num">01</span>
 <h3>Install &amp; agree</h3>
 <p>Run the lightweight Windows installer, open Utopia, and click <em>Agree &amp; start</em>. Your device token is encrypted locally with Windows safeStorage.</p>
 </article>
 <article class="uos-step-card">
+<div class="uos-step-vis step-vis-share" aria-hidden="true">
+<div class="sv-share-row">
+<div class="sv-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg><span>Folders</span></div>
+<div class="sv-bridge"><span>256-bit local</span></div>
+<div class="sv-node is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18"/></svg><span>Chrome</span></div>
+</div>
+<div class="sv-grant-pill"><span class="sv-dot"></span>Tab grant · 30 min · Revoke anytime</div>
+</div>
 <span class="uos-step-num">02</span>
 <h3>Share your space</h3>
 <p>Pick the personal folders you want indexed and optionally pair the Chrome companion over a 256-bit local token for 30-minute per-tab access.</p>
 </article>
 <article class="uos-step-card">
+<div class="uos-step-vis step-vis-ask" aria-hidden="true">
+<div class="sv-prompt">“Summarize my Q4 notes”</div>
+<div class="sv-result">
+<div class="sv-bars"><span style="height:45%"></span><span style="height:72%"></span><span style="height:58%"></span><span class="is-hi" style="height:100%"></span></div>
+<div class="sv-result-meta"><strong>Q4 Brief Ready</strong><span>✓ Saved safely</span></div>
+</div>
+</div>
 <span class="uos-step-num">03</span>
 <h3>Ask for outcomes</h3>
 <p>Chat naturally—UOS routes models, runs multi-step tools, renders visual answers, and saves verified reports without ever overwriting your files.</p>
