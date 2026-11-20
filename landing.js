@@ -724,3 +724,19 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  }
  requestAnimationFrame(frame);
 })();
+
+// Scrollspy for sticky left editorial rail chapters
+(function initEditionRail(){
+ const links=[...document.querySelectorAll('.rail-nav a[data-chapter]')];
+ if(!links.length||'IntersectionObserver' in window===false)return;
+ const map=new Map(links.map(a=>[a.dataset.chapter,a]));
+ const io=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    links.forEach(a=>a.classList.remove('is-active'));
+    map.get(entry.target.id)?.classList.add('is-active');
+   }
+  });
+ },{rootMargin:'-25% 0px -55% 0px',threshold:0.01});
+ links.forEach(a=>{const sec=document.getElementById(a.dataset.chapter);if(sec)io.observe(sec);});
+})();
