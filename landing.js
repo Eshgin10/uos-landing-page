@@ -234,9 +234,9 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   uv.x+=hoverAmp*0.12*sin(uv.y*10.0+uTime*1.8);
   uv.y+=hoverAmp*0.12*sin(uv.x*10.0+uTime*1.8);
   uv-=uMouse*0.09*uHover;
-  vec3 color1=vec3(0.11,0.31,0.92);
-  vec3 color2=vec3(0.24,0.68,1.00);
-  vec3 color3=vec3(0.36,0.22,0.88);
+  vec3 color1=vec3(0.12,0.44,0.26);
+  vec3 color2=vec3(0.55,0.82,0.38);
+  vec3 color3=vec3(0.84,0.74,0.28);
   float innerRadius=0.58;
   float noiseScale=0.68;
   float ang=atan(uv.y,uv.x);
@@ -257,11 +257,11 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   float v3=smoothstep(innerRadius,mix(innerRadius,1.0,0.52),len);
   vec3 col=mix(color1,color2,cl);
   col=mix(color3,col,v0);
-  col=(col+v1*vec3(0.68,0.88,1.0))*v2*v3;
+  col=(col+v1*vec3(0.95,0.94,0.66))*v2*v3;
   col=clamp(col,0.0,1.0);
   float aVal=max(max(col.r,col.g),col.b);
   float alpha=smoothstep(0.03,0.42,aVal);
-  vec3 finalCol=mix(vec3(0.06,0.16,0.55),col,0.86);
+  vec3 finalCol=mix(vec3(0.06,0.20,0.12),col,0.86);
   gl_FragColor=vec4(finalCol*alpha,alpha);
  }`;
  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
@@ -485,7 +485,7 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   [0.24,0.36].forEach((scale,ri)=>{
    ctx.beginPath();
    ctx.ellipse(cx,cy,W*scale,H*scale*0.92,0,0,Math.PI*2);
-   ctx.strokeStyle=ri===0?'rgba(28,79,224,0.16)':'rgba(28,79,224,0.09)';
+   ctx.strokeStyle=ri===0?'rgba(31,111,67,0.18)':'rgba(31,111,67,0.10)';
    ctx.lineWidth=1.2;
    ctx.setLineDash(ri===1?[4,6]:[]);
    ctx.stroke();
@@ -503,8 +503,8 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   // Curved filament links
   pos.forEach((p,i)=>{
    const g=ctx.createLinearGradient(cx,cy,p.px,p.py);
-   g.addColorStop(0,'rgba(28,79,224,0.45)');
-   g.addColorStop(1,'rgba(92,151,255,0.22)');
+   g.addColorStop(0,'rgba(31,111,67,0.48)');
+   g.addColorStop(1,'rgba(126,194,98,0.26)');
    ctx.beginPath();
    ctx.moveTo(cx,cy);
    ctx.quadraticCurveTo(p.cpx,p.cpy,p.px,p.py);
@@ -526,9 +526,9 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
    const x=inv*inv*cx+2*inv*u*p.cpx+u*u*p.px;
    const y=inv*inv*cy+2*inv*u*p.cpy+u*u*p.py;
    const rg=ctx.createRadialGradient(x,y,0,x,y,pk.size*3.2);
-   rg.addColorStop(0,pk.dir===1?'rgba(28,79,224,0.95)':'rgba(92,151,255,0.95)');
-   rg.addColorStop(0.45,'rgba(76,134,255,0.35)');
-   rg.addColorStop(1,'rgba(76,134,255,0)');
+   rg.addColorStop(0,pk.dir===1?'rgba(31,111,67,0.95)':'rgba(205,186,74,0.95)');
+   rg.addColorStop(0.45,'rgba(126,194,98,0.35)');
+   rg.addColorStop(1,'rgba(126,194,98,0)');
    ctx.fillStyle=rg;
    ctx.beginPath();ctx.arc(x,y,pk.size*3.2,0,Math.PI*2);ctx.fill();
    ctx.fillStyle='#ffffff';
@@ -537,14 +537,14 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   // Coordinator central jewel core
   const coreR=38+Math.sin(t*2.2)*2+burst*6;
   const halo=ctx.createRadialGradient(cx,cy,coreR*0.6,cx,cy,coreR*2.2);
-  halo.addColorStop(0,`rgba(28,79,224,${0.26+burst*0.24})`);
-  halo.addColorStop(1,'rgba(28,79,224,0)');
+  halo.addColorStop(0,`rgba(31,111,67,${0.26+burst*0.24})`);
+  halo.addColorStop(1,'rgba(31,111,67,0)');
   ctx.fillStyle=halo;
   ctx.beginPath();ctx.arc(cx,cy,coreR*2.2,0,Math.PI*2);ctx.fill();
   const cg=ctx.createRadialGradient(cx-10,cy-12,4,cx,cy,coreR);
-  cg.addColorStop(0,'#5c97ff');
-  cg.addColorStop(0.42,'#1c4fe0');
-  cg.addColorStop(1,'#09174d');
+  cg.addColorStop(0,'#9bd676');
+  cg.addColorStop(0.42,'#1f6f43');
+  cg.addColorStop(1,'#0c2618');
   ctx.fillStyle=cg;
   ctx.beginPath();ctx.arc(cx,cy,coreR,0,Math.PI*2);ctx.fill();
   ctx.strokeStyle='rgba(255,255,255,0.55)';
@@ -554,7 +554,7 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   ctx.font='600 11.5px "DM Sans",sans-serif';
   ctx.textAlign='center';ctx.textBaseline='middle';
   ctx.fillText('UOS',cx,cy-6);
-  ctx.fillStyle='rgba(220,235,255,0.9)';
+  ctx.fillStyle='rgba(232,245,228,0.92)';
   ctx.font='500 9.5px "DM Sans",sans-serif';
   ctx.fillText('Coordinator',cx,cy+8);
   // Specialist agent floating white pills
@@ -564,7 +564,7 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
    a.glow*=0.94;
    const x=p.px-pillW/2,y=p.py-pillH/2;
    ctx.save();
-   ctx.shadowColor=`rgba(14,44,158,${0.14+a.glow*0.18})`;
+   ctx.shadowColor=`rgba(15,46,28,${0.14+a.glow*0.18})`;
    ctx.shadowBlur=22+a.glow*12;
    ctx.shadowOffsetY=10;
    roundRect(x,y,pillW,pillH,14);
@@ -572,17 +572,17 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
    ctx.fill();
    ctx.restore();
    roundRect(x,y,pillW,pillH,14);
-   ctx.strokeStyle=a.glow>0.1?`rgba(28,79,224,${0.25+a.glow*0.65})`:'rgba(28,79,224,0.16)';
+   ctx.strokeStyle=a.glow>0.1?`rgba(31,111,67,${0.25+a.glow*0.65})`:'rgba(31,111,67,0.18)';
    ctx.lineWidth=1.2;
    ctx.stroke();
    // Live status dot
-   ctx.fillStyle=a.glow>0.15?'#1c4fe0':'#5c97ff';
+   ctx.fillStyle=a.glow>0.15?'#1f6f43':'#7ec262';
    ctx.beginPath();ctx.arc(x+14,y+16,3.5+a.glow*1.2,0,Math.PI*2);ctx.fill();
-   ctx.fillStyle='#12224a';
+   ctx.fillStyle='#142e20';
    ctx.font='600 12px "DM Sans",sans-serif';
    ctx.textAlign='left';ctx.textBaseline='middle';
    ctx.fillText(a.label,x+24,y+16);
-   ctx.fillStyle='#5c6e8f';
+   ctx.fillStyle='#556e5e';
    ctx.font='500 10px "DM Sans",sans-serif';
    ctx.fillText(a.sub,x+14,y+31);
   });
@@ -680,28 +680,28 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   ctx.translate(f.x+f.w/2,f.y+f.h/2);
   ctx.scale(scale,scale);
   ctx.translate(-f.w/2,-f.h/2);
-  ctx.shadowColor='rgba(14,44,158,0.16)';
+  ctx.shadowColor='rgba(15,46,28,0.16)';
   ctx.shadowBlur=22;ctx.shadowOffsetY=8;
   roundRect(0,0,f.w,f.h,13);
-  ctx.fillStyle='rgba(255,255,255,0.94)';
+  ctx.fillStyle='rgba(255,255,248,0.95)';
   ctx.fill();
   ctx.shadowColor='transparent';
-  ctx.strokeStyle='rgba(28,79,224,0.42)';
+  ctx.strokeStyle='rgba(31,111,67,0.42)';
   ctx.lineWidth=1.25;
   ctx.stroke();
   // Mini window header dots + title bar
-  ctx.fillStyle='rgba(28,79,224,0.85)';
+  ctx.fillStyle='rgba(31,111,67,0.88)';
   ctx.beginPath();ctx.arc(13,13,3,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='rgba(92,151,255,0.55)';
+  ctx.fillStyle='rgba(126,194,98,0.7)';
   ctx.beginPath();ctx.arc(22,13,3,0,Math.PI*2);ctx.fill();
   roundRect(32,10,48,6,3);
-  ctx.fillStyle='rgba(18,34,74,0.14)';ctx.fill();
+  ctx.fillStyle='rgba(20,46,32,0.14)';ctx.fill();
   if(f.kind===0){
    // Mini bar chart frame
    const heights=[18,32,24,42,36];
    heights.forEach((bh,bi)=>{
     roundRect(14+bi*24,f.h-14-bh,16,bh,4);
-    ctx.fillStyle=bi===3?'#1c4fe0':'#c8ddff';
+    ctx.fillStyle=bi===3?'#1f6f43':'#cce2c6';
     ctx.fill();
    });
   }else if(f.kind===1){
@@ -709,15 +709,15 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
    for(let li=0;li<3;li++){
     const ly=29+li*16;
     roundRect(14,ly,10,10,3);
-    ctx.fillStyle=li<2?'#1c4fe0':'#dce8ff';ctx.fill();
+    ctx.fillStyle=li<2?'#1f6f43':'#dcebd6';ctx.fill();
     roundRect(30,ly+2,f.w-46-(li*14),6,3);
-    ctx.fillStyle='rgba(18,34,74,0.18)';ctx.fill();
+    ctx.fillStyle='rgba(20,46,32,0.18)';ctx.fill();
    }
   }else{
    // Mini metric + pill CTA frame
-   roundRect(14,28,64,12,4);ctx.fillStyle='#12224a';ctx.fill();
-   roundRect(14,48,f.w-78,7,3.5);ctx.fillStyle='rgba(75,93,128,0.28)';ctx.fill();
-   roundRect(f.w-54,36,40,22,11);ctx.fillStyle='#1c4fe0';ctx.fill();
+   roundRect(14,28,64,12,4);ctx.fillStyle='#142e20';ctx.fill();
+   roundRect(14,48,f.w-78,7,3.5);ctx.fillStyle='rgba(77,101,86,0.28)';ctx.fill();
+   roundRect(f.w-54,36,40,22,11);ctx.fillStyle='#1f6f43';ctx.fill();
   }
   ctx.restore();
   return true;
@@ -740,7 +740,7 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
    const dist=Math.hypot(d.x-mx,d.y-my);
    const near=Math.max(0,1-dist/prox);
    const r=2.1+near*2.4;
-   ctx.fillStyle=near>0.02?`rgba(28,79,224,${0.22+near*0.78})`:'rgba(18,42,102,0.18)';
+   ctx.fillStyle=near>0.02?`rgba(31,111,67,${0.24+near*0.76})`:'rgba(20,46,32,0.18)';
    ctx.beginPath();ctx.arc(d.x,d.y,r,0,Math.PI*2);ctx.fill();
   });
   frames=frames.filter(f=>drawUIFrame(f,now));
