@@ -694,3 +694,13 @@ body{background:var(--page);color:var(--ink)}
 .feat-panel:not(.is-active) .feat-panel-bottom{justify-content:center}
 .feat-panel:not(.is-active) .feat-panel-tag{margin-left:0}
 @media(max-width:860px){.feat-accordion{flex-direction:column;height:auto}.feat-panel{flex:none;height:110px;padding:18px 20px}.feat-panel.is-active{flex:none;height:340px}.feat-panel:not(.is-active) .feat-panel-bottom{justify-content:flex-start}}
+
+/* Sunlit lime-glass bezel buttons (header & demo CTA) */
+.header .nav-download,.ed-cta-primary{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:16px;border:1px solid #ffffff99;background:linear-gradient(180deg,#e4f98a 0%,#c7eb57 52%,#d7f477 100%);color:#0f1f12;font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.01em;box-shadow:inset 0 0 12px #ffffdcbf,inset 0 2px 3px #ffffffd9,inset 0 -2px 6px #78a82848,0 0 0 5px #ffffff36,0 0 0 6px #ffffff5c,0 10px 26px #0d241226;transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s ease,filter .22s ease}
+.header .nav-download{padding:10px 22px;font-size:19px;line-height:1}
+.ed-cta-primary{padding:14px 28px;font-size:23px;line-height:1.05;box-shadow:inset 0 0 14px #ffffdcbf,inset 0 2px 3px #ffffffd9,inset 0 -2px 6px #78a82848,0 0 0 5px #142e2012,0 0 0 6px #142e2022,0 12px 28px #142e201c}
+.ed-cta-primary svg{width:17px;height:17px;fill:#0f1f12;opacity:.85;flex:none}
+.ed-cta-primary em{font-style:normal;width:24px;height:24px;border-radius:50%;background:#0f1f1214;color:#0f1f12;display:grid;place-items:center;font:600 13px/1 'DM Sans',sans-serif;transition:transform .22s ease}
+.header .nav-download:hover,.ed-cta-primary:hover{transform:translateY(-2px);filter:brightness(1.03);background:linear-gradient(180deg,#e9fb98 0%,#cef062 52%,#ddf685 100%);box-shadow:inset 0 0 16px #ffffe6d9,inset 0 2px 4px #ffffffeb,inset 0 -2px 6px #78a82848,0 0 0 5px #ffffff4a,0 0 0 6px #ffffff75,0 16px 34px #0d241230}
+.ed-cta-primary:hover{box-shadow:inset 0 0 16px #ffffe6d9,inset 0 2px 4px #ffffffeb,inset 0 -2px 6px #78a82848,0 0 0 5px #1f6f4318,0 0 0 6px #1f6f4330,0 16px 34px #142e2024}
+.ed-cta-primary:hover em{transform:translateY(2px)}
