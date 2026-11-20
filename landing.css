@@ -336,7 +336,7 @@ body{background:var(--page);color:var(--ink)}
 .primary,.cta-download-card .cta-button{background:var(--blue);box-shadow:0 12px 26px #1c4fe038}
 .primary:hover,.cta-download-card .cta-button:hover{background:#153ec2}
 .demo-film-frame{border-color:#1c4fe01c;box-shadow:0 30px 80px #0e2c9e16}
-.features-showcase{background:linear-gradient(180deg,#eaf0ff 0%,#f4f7ff 100%)}
+.features-showcase{background:var(--page)}
 .feature-card{border-color:#1c4fe01c;box-shadow:0 22px 58px #0e2c9e14}
 .feature-dots button::before{background:#1c4fe030}
 .feature-dots button:hover::before{background:#1c4fe078}
