@@ -5,7 +5,7 @@
 <title>Utopia (UOS) — Your personal AI operating layer for Windows</title>
 <meta name="description" content="Utopia (UOS) is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
 <link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#1c4fe0"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=20"><script src="landing.js?v=11" defer></script>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=21"><script src="landing.js?v=12" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -86,37 +86,10 @@
 <h3>Dynamically Generated Interface</h3>
 <p>See results visually without opening extra apps or switching tabs. Utopia generates a tailored interface on the fly so every answer is clear, interactive, and easy to act on.</p>
 </div>
-<div class="feature-stage vis-ui" aria-hidden="true">
-<div class="ui-masonry">
-<div class="ui-tile ui-crop-top">
-<span class="ui-kicker">Calendar</span>
-<strong>Thu · 10:00 AM</strong>
-<p>Design review with Alex &amp; Sam</p>
-</div>
-<div class="ui-tile ui-featured">
-<span class="ui-kicker">Q4 Revenue</span>
-<div class="ui-metric"><strong>$48.9k</strong><span>+18.4%</span></div>
-<div class="ui-bars"><span style="height:40%"></span><span style="height:62%"></span><span style="height:52%"></span><span style="height:78%"></span><span class="is-peak" style="height:100%"></span></div>
-</div>
-<div class="ui-tile ui-crop-top">
-<span class="ui-kicker">Quick Action</span>
-<strong>Send Q4 Deck</strong>
-<div class="ui-btn-row"><span class="ui-pill-btn">Approve</span><span class="ui-pill-ghost">Edit</span></div>
-</div>
-<div class="ui-tile">
-<span class="ui-kicker">Best Route</span>
-<strong>08:40 Express</strong>
-<p>Direct · 2h 15m · Window seat</p>
-</div>
-<div class="ui-tile">
-<span class="ui-kicker">Checklist · 3/4</span>
-<ul class="ui-checks"><li class="done">Export Q4 numbers</li><li class="done">Summarize tab notes</li><li>Share final brief</li></ul>
-</div>
-<div class="ui-tile ui-crop-bottom">
-<span class="ui-kicker">File Digest</span>
-<strong>Weekend-notes.md</strong>
-<p>3 key highlights pulled automatically</p>
-</div>
+<div class="feature-stage vis-ui">
+<div class="dot-grid-stage" id="dot-grid-ui">
+<canvas class="dot-grid-canvas" aria-label="Interactive dot grid that generates floating UI frames on hover"></canvas>
+<span class="dot-grid-hint">Hover across the grid to generate live UI frames</span>
 </div>
 </div>
 </article>
