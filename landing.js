@@ -114,3 +114,21 @@ if(featureSection&&featureDots.length&&featureSlides.length){
  window.addEventListener('resize',onScrollOrResize,{passive:true});
  syncFeatureFromScroll();
 }
+
+// Cinematic portal-frame scroll progression for hero
+const heroStage=document.querySelector('.hero-stage');
+if(heroStage&&!reducedMotion?.matches){
+ let heroRaf=null;
+ function syncHeroScroll(){
+  heroRaf=null;
+  const rect=heroStage.getBoundingClientRect();
+  const range=Math.max(1,heroStage.offsetHeight-window.innerHeight*0.35);
+  const raw=Math.max(0,Math.min(1,-rect.top/range));
+  const eased=1-Math.pow(1-raw,2.2);
+  heroStage.style.setProperty('--hero-p',eased.toFixed(4));
+ }
+ function onHeroScroll(){if(heroRaf===null)heroRaf=requestAnimationFrame(syncHeroScroll);}
+ window.addEventListener('scroll',onHeroScroll,{passive:true});
+ window.addEventListener('resize',onHeroScroll,{passive:true});
+ syncHeroScroll();
+}

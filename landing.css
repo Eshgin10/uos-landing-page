@@ -329,3 +329,13 @@ body{background:var(--page);color:var(--ink)}
 .cta-release span{margin-left:4px;color:var(--blue)}
 @media(max-width:760px){.cta-section{padding:22px 20px 76px}.cta-card{grid-template-columns:1fr;gap:30px;min-height:0;padding:42px 30px}.cta-copy h2{font-size:clamp(56px,11vw,78px)}.cta-download-card{width:min(100%,480px);margin:0 auto}}
 @media(max-width:560px){.cta-section{padding:16px 16px 64px}.cta-card{gap:24px;padding:34px 22px;border-radius:20px}.cta-copy{text-align:center}.cta-copy .cta-eyebrow{margin-bottom:16px}.cta-copy h2{margin-bottom:17px}.cta-copy>p{font-size:14px}.cta-download-card{padding:22px 18px;border-radius:17px}.cta-product{padding-bottom:18px;margin-bottom:18px}.cta-download-card .cta-button{padding:15px 17px;font-size:13px}}
+
+/* Cinematic portal-frame scroll animation for hero */
+.hero-stage{position:relative;height:140svh;background:var(--page);--hero-p:0}
+.hero-stage .hero{position:sticky;top:0;height:100svh;min-height:0;display:flex;align-items:center;justify-content:center;padding:calc(var(--hero-p) * clamp(14px,3.2vw,42px));background:var(--page);overflow:visible}
+.hero-stage .hero::before,.hero-stage .hero::after{display:none}
+.hero-frame{position:relative;width:100%;height:100%;overflow:hidden;border-radius:calc(var(--hero-p) * 34px);transform:scale(calc(1 - var(--hero-p) * 0.045));box-shadow:0 calc(var(--hero-p) * 36px) calc(var(--hero-p) * 90px) rgb(16 38 68 / calc(var(--hero-p) * 0.28));will-change:transform,border-radius}
+.hero-art{position:absolute;inset:-4%;background:linear-gradient(180deg,#0c224a42 0%,transparent 22%,transparent 86%,#0c224a24 100%),url('hero.jpg?v=3') center center/cover no-repeat;transform:scale(calc(1 + var(--hero-p) * 0.14)) translateY(calc(var(--hero-p) * -3.5%));filter:saturate(calc(1 + var(--hero-p) * 0.12)) brightness(calc(1 - var(--hero-p) * 0.06));will-change:transform,filter}
+.hero-frame .scroll-cue{bottom:30px;opacity:calc(1 - min(1,var(--hero-p) * 2.8));transform:translate(-50%,calc(var(--hero-p) * 22px));transition:none}
+@media(max-width:680px){.hero-stage{height:128svh}.hero-frame{border-radius:calc(var(--hero-p) * 24px)}}
+@media(prefers-reduced-motion:reduce){.hero-stage{height:100svh;--hero-p:0}.hero-frame,.hero-art,.hero-frame .scroll-cue{transform:none!important;filter:none!important;border-radius:0!important;box-shadow:none!important;opacity:1!important}}
