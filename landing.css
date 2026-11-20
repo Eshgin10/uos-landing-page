@@ -509,5 +509,5 @@ body{background:var(--page);color:var(--ink)}
 .hero-art{position:absolute;inset:-8% 0;background:linear-gradient(180deg,#0c224a42 0%,transparent 22%,transparent 80%,#0c224a38 100%),url('hero.jpg?v=3') center center/cover no-repeat;transform:translate3d(0,calc(var(--hero-y) * 0.48),0) scale(calc(1 + var(--hero-p) * 0.1));filter:brightness(calc(1 - var(--hero-p) * 0.22));will-change:transform,filter}
 .hero-frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(244,247,251,calc(var(--hero-p) * 0.72)) 100%)}
 .hero-frame .scroll-cue{position:absolute;z-index:2;bottom:32px;opacity:calc(1 - min(1,var(--hero-p) * 2.4));transform:translate3d(-50%,calc(var(--hero-y) * -0.25),0);transition:none}
-.demo-film{position:relative;z-index:3;box-shadow:0 -24px 72px #0d224029}
+.demo-film{position:relative;z-index:3;background:transparent;box-shadow:none}
 @media(prefers-reduced-motion:reduce){.hero-stage{--hero-p:0;--hero-y:0px}.hero-art,.hero-frame .scroll-cue{transform:none!important;filter:none!important;opacity:1!important}.hero-frame::after{display:none}}
