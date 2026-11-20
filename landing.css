@@ -537,7 +537,6 @@ body{background:var(--page);color:var(--ink)}
 .ed-chapter{max-width:1120px;margin:0 auto clamp(120px,14vw,190px)}
 .ed-chapter-last{margin-bottom:64px}
 .ed-display{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(54px,6.2vw,92px);line-height:.96;letter-spacing:-.035em;color:var(--ink);margin:0 0 42px}
-.ed-drop{font-style:italic;font-size:1.18em;color:var(--blue);margin-right:2px}
 .ed-copy-col{max-width:410px}
 .ed-copy-col h3{font-family:'DM Sans',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.015em;color:var(--ink);margin:0 0 10px}
 .ed-copy-col p{font-size:15.5px;line-height:1.68;color:var(--muted)}
