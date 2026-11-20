@@ -5,7 +5,7 @@
 <title>Utopia (UOS) — Your personal AI operating layer for Windows</title>
 <meta name="description" content="Utopia (UOS) is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
 <link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#1c4fe0"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=16"><script src="landing.js?v=7" defer></script>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=17"><script src="landing.js?v=8" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -46,17 +46,22 @@
 <h3>Full Context</h3>
 <p>UOS connects directly to your Windows folders, installed Start-menu apps, and paired Chrome tabs—so you can ask naturally without hunting for file paths or giving explicit directions.</p>
 </div>
-<div class="feature-stage vis-context" aria-hidden="true">
-<div class="ctx-squircles">
-<div class="ctx-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg><span>Files</span></div>
-<div class="ctx-tile is-lifted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M8 20h8M12 18v2"/></svg><span>Apps</span></div>
-<div class="ctx-tile is-lifted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>Tabs</span></div>
-<div class="ctx-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span>Notes</span></div>
+<div class="feature-stage vis-context">
+<div class="folder-float" id="folder-float" data-open="true">
+<div class="ff-cloud" aria-hidden="true">
+<div class="ff-item" data-home-x="-135" data-home-y="-128" data-rot="-9"><span class="ff-tag">MD</span><strong>Q4-notes.md</strong><small>~/Documents</small></div>
+<div class="ff-item" data-home-x="128" data-home-y="-118" data-rot="8"><span class="ff-tag">TAB</span><strong>Analytics</strong><small>Chrome · Live</small></div>
+<div class="ff-item" data-home-x="-158" data-home-y="-14" data-rot="-6"><span class="ff-tag">CSV</span><strong>Budget.csv</strong><small>~/Downloads</small></div>
+<div class="ff-item" data-home-x="156" data-home-y="-6" data-rot="7"><span class="ff-tag">APP</span><strong>Notion</strong><small>Open window</small></div>
+<div class="ff-item" data-home-x="0" data-home-y="-164" data-rot="-2"><span class="ff-tag">ICS</span><strong>Schedule.ics</strong><small>Synced today</small></div>
 </div>
-<div class="ctx-prompt">
-<span class="ctx-dot"></span>
-<span class="ctx-text">“Prep the Q4 update from last week’s notes and open tabs.”</span>
-<span class="ctx-pill">4 sources linked</span>
+<button type="button" class="ff-folder" aria-label="Toggle floating folder files" aria-expanded="true">
+<span class="ff-back"></span>
+<span class="ff-paper p1"></span>
+<span class="ff-paper p2"></span>
+<span class="ff-front"><span class="ff-front-label">Your Space</span></span>
+</button>
+<span class="ff-hint">Click folder or drag &amp; toss files</span>
 </div>
 </div>
 </article>
