@@ -645,3 +645,13 @@ body{background:var(--page);color:var(--ink)}
 .layer-faq .uos-faq-intro{position:static}
 .layer-faq .uos-faq-intro h2{margin-bottom:18px}
 @media(max-width:680px){.stack-layer{border-radius:24px 24px 0 0;padding:32px 20px 72px}}
+
+/* Elevated Demo CTA buttons */
+.ed-demo-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
+.ed-cta-primary{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;padding:15px 22px;border-radius:99px;background:linear-gradient(135deg,#1f6f43 0%,#155231 100%);color:#ffffff;font-size:14px;font-weight:600;letter-spacing:-.01em;box-shadow:0 12px 28px #1f6f4338,inset 0 1px 0 #ffffff33;transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s ease,background .22s ease}
+.ed-cta-primary svg{width:16px;height:16px;fill:currentColor;flex:none}
+.ed-cta-primary em{font-style:normal;width:24px;height:24px;border-radius:50%;background:#ffffff24;display:grid;place-items:center;font-size:13px;transition:transform .22s ease}
+.ed-cta-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px #1f6f4348,inset 0 1px 0 #ffffff45}
+.ed-cta-primary:hover em{transform:translateY(2px)}
+.ed-cta-secondary{display:inline-flex;align-items:center;gap:6px;padding:14px 18px;border-radius:99px;border:1px solid #142e2022;background:#ffffffb8;color:var(--ink);font-size:13.5px;font-weight:500;transition:border-color .2s ease,background .2s ease,transform .2s ease}
+.ed-cta-secondary:hover{border-color:var(--blue);color:var(--blue);background:#ffffff;transform:translateY(-2px)}

@@ -156,17 +156,37 @@ if(heroStage&&!reducedMotion?.matches){
  syncHeroScroll();
 }
 
-// Smooth open and close animation for FAQ accordion items
-document.querySelectorAll('.uos-faq-list details').forEach(details=>{
+// Smooth open and close animation for FAQ accordion items (only one open at a time)
+const faqItems=[...document.querySelectorAll('.uos-faq-list details')];
+const faqControllers=new Map();
+faqItems.forEach(details=>{
  const summary=details.querySelector('summary');
  const content=details.querySelector('p');
  if(!summary||!content)return;
  let anim=null,isClosing=false,isExpanding=false;
+ function closeItem(){
+  if(!details.open||isClosing)return;
+  if(reducedMotion?.matches||!details.animate){details.open=false;return;}
+  isClosing=true;
+  details.style.overflow='hidden';
+  details.classList.add('is-closing');
+  const startHeight=`${details.offsetHeight}px`;
+  const endHeight=`${summary.offsetHeight}px`;
+  anim?.cancel();
+  anim=details.animate({height:[startHeight,endHeight]},{duration:260,easing:'cubic-bezier(.22,1,.36,1)'});
+  anim.onfinish=()=>{details.open=false;details.classList.remove('is-closing');details.style.height='';details.style.overflow='';isClosing=false;anim=null;};
+  anim.oncancel=()=>{isClosing=false;};
+ }
+ faqControllers.set(details,{close:closeItem});
  summary.addEventListener('click',event=>{
-  if(reducedMotion?.matches||!details.animate)return;
+  if(reducedMotion?.matches||!details.animate){
+   if(!details.open)faqItems.forEach(other=>{if(other!==details)other.open=false;});
+   return;
+  }
   event.preventDefault();
   details.style.overflow='hidden';
   if(isClosing||!details.open){
+   faqItems.forEach(other=>{if(other!==details)faqControllers.get(other)?.close();});
    details.style.height=`${details.offsetHeight}px`;
    details.open=true;
    details.classList.remove('is-closing');
@@ -181,14 +201,7 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
     anim.oncancel=()=>{isExpanding=false;};
    });
   }else if(isExpanding||details.open){
-   isClosing=true;
-   details.classList.add('is-closing');
-   const startHeight=`${details.offsetHeight}px`;
-   const endHeight=`${summary.offsetHeight}px`;
-   anim?.cancel();
-   anim=details.animate({height:[startHeight,endHeight]},{duration:260,easing:'cubic-bezier(.22,1,.36,1)'});
-   anim.onfinish=()=>{details.open=false;details.classList.remove('is-closing');details.style.height='';details.style.overflow='';isClosing=false;anim=null;};
-   anim.oncancel=()=>{isClosing=false;};
+   closeItem();
   }
  });
 });
