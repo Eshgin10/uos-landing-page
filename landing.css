@@ -725,3 +725,5 @@ body{background:var(--page);color:var(--ink)}
 .about-media{border-radius:20px;overflow:hidden;box-shadow:0 24px 60px #0f2e1c1c}
 .about-media img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 @media(max-width:860px){.about-bottom{grid-template-columns:1fr;gap:28px}.about-note{max-width:52ch}.m-wide{width:clamp(150px,52vw,280px)}}
+::selection{background:#c9ef5f;color:#0e1f12}
+::-moz-selection{background:#c9ef5f;color:#0e1f12}
