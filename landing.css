@@ -508,11 +508,11 @@ body{background:var(--page);color:var(--ink)}
 .hero-stage .hero::before,.hero-stage .hero::after{display:none}
 .hero-frame{position:relative;width:100%;height:100%;overflow:hidden}
 .hero-art{position:absolute;inset:-4% 0;background:url('hero.jpg?v=6') center center/cover no-repeat;transform:scale(calc(1 + var(--hero-p) * 0.08));filter:none;will-change:transform}
-.hero-headline{position:relative;z-index:2;height:100%;display:flex;align-items:flex-start;justify-content:center;padding:clamp(108px,15svh,176px) 24px 0;text-align:center;pointer-events:none;transform:translate3d(0,calc(var(--hero-p) * -42px),0) scale(calc(1 - var(--hero-p) * 0.05));opacity:calc(1 - var(--hero-p) * 1.15);will-change:transform,opacity}
-.hero-headline h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(60px,9vw,142px);line-height:.91;letter-spacing:-.04em;color:#ffffff;margin:0;text-shadow:0 4px 28px #0a1f1099,0 2px 8px #0a1f1070}
+.hero-headline{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;justify-content:flex-start;padding:0 4.5% clamp(38px,6svh,68px);text-align:left;pointer-events:none;transform-origin:bottom left;transform:translate3d(0,calc(var(--hero-p) * -42px),0) scale(calc(1 - var(--hero-p) * 0.05));opacity:calc(1 - var(--hero-p) * 1.15);will-change:transform,opacity}
+.hero-headline h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(54px,8.2vw,132px);line-height:.91;letter-spacing:-.04em;color:#ffffff;margin:0;text-shadow:0 4px 28px #0a1f1099,0 2px 8px #0a1f1070}
 .hero-headline h1 em{font-style:italic;font-weight:400}
 .hero-frame::after{display:none}
-.hero-frame .scroll-cue{position:absolute;z-index:2;bottom:32px;opacity:calc(1 - min(1,var(--hero-p) * 2.6));transform:translate3d(-50%,calc(var(--hero-p) * -18px),0);transition:none}
+.hero-frame .scroll-cue{position:absolute;z-index:2;left:auto;right:4.5%;bottom:clamp(38px,6svh,68px);opacity:calc(1 - min(1,var(--hero-p) * 2.6));transform:translate3d(0,calc(var(--hero-p) * -18px),0);transition:none}
 .demo-film{position:relative;z-index:3;background:transparent;box-shadow:none}
 .beta-tag{font:600 10px/1 'DM Sans',sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;margin-left:2px;border-radius:99px;background:#ffffff24;border:1px solid #ffffff45;color:#ffffff;backdrop-filter:blur(8px);align-self:center}
 @media(prefers-reduced-motion:reduce){.hero-stage{--hero-p:0;--hero-y:0px}.hero-art,.hero-headline,.hero-frame .scroll-cue{transform:none!important;filter:none!important;opacity:1!important}.hero-frame::after{display:none}}
