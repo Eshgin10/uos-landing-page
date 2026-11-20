@@ -898,7 +898,6 @@ faqItems.forEach(details=>{
  }
  notes.forEach(n=>{
   n.classList.add('sc-await');
-  n.addEventListener('pointerenter',()=>emitHoverSpark(n));
  });
  if('IntersectionObserver' in window){
   const io=new IntersectionObserver(entries=>{
