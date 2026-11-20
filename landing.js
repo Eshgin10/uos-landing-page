@@ -22,9 +22,9 @@ function selectTab(tab,focus=false){
 tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>{pauseAutoplay();selectTab(tab);});tab.addEventListener('keydown',event=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;event.preventDefault();pauseAutoplay();selectTab(tabs[event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:tabs.length-1))%tabs.length],true);});});
 // Progressive enhancement: content stays visible without JavaScript or observers.
 let revealObserver;
-const revealTargets=[...document.querySelectorAll('.ed-display,.ed-copy-col,.ed-demo-offset,.sc-prompt,.ed-piece,.ed-stage-wide,.ed-cmd,.ed-spec-row,.uos-faq-list details')];
+const revealTargets=[...document.querySelectorAll('.ed-display,.ed-copy-col,.ed-demo-offset,.sc-note,.ed-piece,.ed-stage-wide,.ed-cmd,.ed-spec-row,.uos-faq-list details')];
 if(!reducedMotion?.matches&&'IntersectionObserver' in window){
- const staggerGroups=['.ed-scatter-prompts .sc-prompt','.ed-uneven-grid .ed-piece','.ed-cloud-commands .ed-cmd','.ed-spec-matrix .ed-spec-row','.uos-faq-list details'];
+ const staggerGroups=['.ed-scatter-prompts .sc-note','.ed-uneven-grid .ed-piece','.ed-cloud-commands .ed-cmd','.ed-spec-matrix .ed-spec-row','.uos-faq-list details'];
  staggerGroups.forEach(sel=>{
   document.querySelectorAll(sel).forEach((el,i)=>{
    const step=sel.includes('ed-cmd')?45:75;
