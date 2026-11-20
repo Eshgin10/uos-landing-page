@@ -394,6 +394,39 @@ body{background:var(--page);color:var(--ink)}
 @media(max-width:960px){.footer-cta-banner{flex-direction:column;align-items:flex-start}.footer-cta-glass{width:100%}.footer-cta-meta{flex:1;min-width:0}.footer-columns{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:42px}.unified-footer .footer-brand{grid-column:1/-1}}
 @media(max-width:560px){.site-footer.unified-footer{padding:24px 16px 22px}.footer-cta-banner{padding:22px 18px;border-radius:18px}.footer-cta-glass{flex-direction:column}.footer-cta-action{flex-direction:row;min-width:0;padding:14px 18px}.footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}}
 
+/* Zero-friction 3-step setup section */
+.uos-steps-section{max-width:1180px;margin:0 auto;padding:96px 5% 88px}
+.uos-steps-head{max-width:640px;margin-bottom:46px}
+.uos-steps-head .eyebrow{color:var(--blue);margin-bottom:14px}
+.uos-steps-head h2{font-size:clamp(44px,5.2vw,72px);line-height:.98;letter-spacing:-.035em;color:var(--ink);margin:0 0 16px}
+.uos-steps-head p{font-size:16px;line-height:1.65;color:var(--muted)}
+.uos-steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.uos-step-card{padding:30px 28px 32px;border-radius:22px;background:#ffffff;border:1px solid #1c4fe018;box-shadow:0 16px 42px #0e2c9e0d;display:flex;flex-direction:column;gap:12px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.uos-step-card:hover{transform:translateY(-4px);box-shadow:0 22px 52px #0e2c9e16;border-color:#1c4fe036}
+.uos-step-num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#e9f0ff;color:var(--blue);font-size:12px;font-weight:600;margin-bottom:6px}
+.uos-step-card h3{font-family:'DM Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;color:var(--ink);margin:0}
+.uos-step-card p{font-size:14.5px;line-height:1.65;color:var(--muted)}
+
+/* UOS FAQ section */
+.uos-faq-section{max-width:1180px;margin:0 auto;padding:24px 5% 108px}
+.uos-faq-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(32px,5vw,76px);align-items:start}
+.uos-faq-intro{position:sticky;top:88px}
+.uos-faq-intro .eyebrow{color:var(--blue);margin-bottom:14px}
+.uos-faq-intro h2{font-size:clamp(44px,5.2vw,70px);line-height:.98;letter-spacing:-.035em;color:var(--ink);margin:0 0 16px}
+.uos-faq-intro p{font-size:15.5px;line-height:1.65;color:var(--muted);max-width:36ch}
+.uos-faq-list{display:flex;flex-direction:column;gap:12px}
+.uos-faq-list details{border-radius:16px;background:#ffffff;border:1px solid #1c4fe018;box-shadow:0 8px 24px #0e2c9e08;overflow:hidden;transition:border-color .2s ease,box-shadow .2s ease}
+.uos-faq-list details[open]{border-color:#1c4fe036;box-shadow:0 14px 34px #0e2c9e12}
+.uos-faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;cursor:pointer;list-style:none;font-size:15.5px;font-weight:500;color:var(--ink)}
+.uos-faq-list summary::-webkit-details-marker{display:none}
+.uos-faq-list summary span{width:28px;height:28px;border-radius:50%;background:#e9f0ff;color:var(--blue);display:grid;place-items:center;font-size:19px;flex:none;transition:transform .22s ease}
+.uos-faq-list details[open] summary span{transform:rotate(45deg)}
+.uos-faq-list details>p{padding:0 22px 22px;font-size:14.5px;line-height:1.7;color:var(--muted)}
+.uos-faq-list code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;padding:2px 6px;border-radius:6px;background:#edf3ff;color:var(--ink)}
+.uos-faq-list a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.uos-steps-section{padding:72px 4.5% 68px}.uos-steps-grid{grid-template-columns:1fr}.uos-faq-section{padding:16px 4.5% 84px}.uos-faq-layout{grid-template-columns:1fr}.uos-faq-intro{position:static}}
+@media(max-width:560px){.uos-steps-section{padding:56px 20px 52px}.uos-step-card{padding:24px 20px}.uos-faq-section{padding:12px 20px 68px}.uos-faq-list summary{padding:17px 16px;font-size:14.5px}.uos-faq-list details>p{padding:0 16px 18px;font-size:13.5px}}
+
 /* Smooth full-bleed hero parallax with rising curtain handoff */
 .hero-stage{position:relative;height:100svh;overflow:hidden;background:#0c1e3a;--hero-p:0;--hero-y:0px}
 .hero-stage .hero{position:relative;height:100%;min-height:0;display:block;padding:0;background:none;overflow:hidden}

@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utopia — Your world, a little lighter</title>
-<meta name="description" content="A calmer assistant for Windows. Find your files, explore ideas and turn questions into useful visual answers with Utopia.">
-<link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#edf1df"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=12"><script src="landing.js?v=5" defer></script>
+<title>Utopia (UOS) — Your personal AI operating layer for Windows</title>
+<meta name="description" content="Utopia (UOS) is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
+<link rel="preload" as="image" href="hero.jpg?v=3"><meta name="theme-color" content="#1c4fe0"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=13"><script src="landing.js?v=5" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="header"><a class="wordmark" href="#" aria-label="Utopia home"><img class="brand-mark" src="assets/utopia-mark.png" alt="">utopia</a><nav aria-label="Main navigation"><a href="#demo">Demo</a><a href="#features">Features</a><a href="#footer">About</a></nav><a class="nav-download" href="downloads/Utopia-Setup.exe">Get Utopia <span aria-hidden="true">↗</span></a></header>
+<header class="header"><a class="wordmark" href="#" aria-label="Utopia home"><img class="brand-mark" src="assets/utopia-mark.png" alt="">utopia</a><nav aria-label="Main navigation"><a href="#demo">Demo</a><a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a></nav><a class="nav-download" href="downloads/Utopia-Setup.exe">Get Utopia <span aria-hidden="true">↗</span></a></header>
 <main id="main">
 <section class="hero-stage" aria-label="Utopia hero">
 <div class="hero">
@@ -21,8 +21,8 @@
 </div>
 </section>
 <section class="demo-film section" id="demo" aria-labelledby="demo-title">
-<div class="demo-film-heading"><span class="eyebrow">A closer look</span><h2 id="demo-title">Meet your new<br><em>way of working.</em></h2><p>See Utopia in action, from your first question to a workspace that comes together around you.</p></div>
-<figure class="demo-film-frame"><video controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="Utopia product demo"><source src="utopia-demo.mp4" type="video/mp4">Your browser does not support HTML video. Download the <a href="utopia-demo.mp4">Utopia demo video</a>.</video><figcaption>Utopia, in a minute.</figcaption></figure>
+<div class="demo-film-heading"><span class="eyebrow">Utopia Operating System · v0.19.11</span><h2 id="demo-title">Your computer,<br><em>built around you.</em></h2><p>One quiet Windows workspace that connects your local files, Start-menu apps, and Chrome tabs—no login or API keys needed.</p></div>
+<figure class="demo-film-frame"><video controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="Utopia product demo"><source src="utopia-demo.mp4" type="video/mp4">Your browser does not support HTML video. Download the <a href="utopia-demo.mp4">Utopia demo video</a>.</video><figcaption>UOS in action — local context, live research, and adaptive visual answers.</figcaption></figure>
 </section>
 <section class="features-showcase" id="features" aria-label="Utopia features">
 <div class="features-sticky">
@@ -45,7 +45,7 @@
 </div>
 <div class="feature-caption">
 <h3>Full Context</h3>
-<p>Utopia connects directly to your computer—your files, folders, and apps—so when you ask for something, you don’t need to give explicit paths or step-by-step directions.</p>
+<p>UOS connects directly to your Windows folders, installed Start-menu apps, and paired Chrome tabs—so you can ask naturally without hunting for file paths or giving explicit directions.</p>
 </div>
 </article>
 
@@ -68,7 +68,7 @@
 </div>
 <div class="feature-caption">
 <h3>Agentic Work</h3>
-<p>Orchestrated agents work quietly in the background—automatically picking the best model for each step, breaking complex tasks apart, and delivering the outcome you asked for.</p>
+<p>An orchestrated coordinator runs multi-step work in the background—combining local tools, live sourced research, and automatic model routing so you just ask for the outcome you want.</p>
 </div>
 </article>
 
@@ -159,7 +159,7 @@
 </div>
 <div class="feature-caption">
 <h3>Security</h3>
-<p>A dedicated security agent actively guards every operation using backend policy logic—verifying actions, blocking sensitive paths, and keeping everything safely in its place.</p>
+<p>Active backend security logic, encrypted Windows device credentials, strict folder boundaries, and a 256-bit localhost Chrome bridge keep sensitive paths locked and everything in its place.</p>
 </div>
 </article>
 
@@ -174,17 +174,72 @@
 </div>
 </div>
 </section>
+<section class="uos-steps-section" id="how-it-works" aria-labelledby="steps-title">
+<div class="uos-steps-head">
+<span class="eyebrow">Zero-friction setup</span>
+<h2 id="steps-title">From download to<br><em>flow in a minute.</em></h2>
+<p>No account creation, no API keys, and no terminal setup. UOS registers your device privately on first launch.</p>
+</div>
+<div class="uos-steps-grid">
+<article class="uos-step-card">
+<span class="uos-step-num">01</span>
+<h3>Install &amp; agree</h3>
+<p>Run the lightweight Windows installer, open Utopia, and click <em>Agree &amp; start</em>. Your device token is encrypted locally with Windows safeStorage.</p>
+</article>
+<article class="uos-step-card">
+<span class="uos-step-num">02</span>
+<h3>Share your space</h3>
+<p>Pick the personal folders you want indexed and optionally pair the Chrome companion over a 256-bit local token for 30-minute per-tab access.</p>
+</article>
+<article class="uos-step-card">
+<span class="uos-step-num">03</span>
+<h3>Ask for outcomes</h3>
+<p>Chat naturally—UOS routes models, runs multi-step tools, renders visual answers, and saves verified reports without ever overwriting your files.</p>
+</article>
+</div>
+</section>
+<section class="uos-faq-section" id="faq" aria-labelledby="faq-heading">
+<div class="uos-faq-layout">
+<div class="uos-faq-intro">
+<span class="eyebrow">Good questions</span>
+<h2 id="faq-heading">Built for<br><em>real Windows.</em></h2>
+<p>Clear boundaries, transparent permissions, and everything you need to know before installing UOS.</p>
+</div>
+<div class="uos-faq-list">
+<details>
+<summary>Do I need an AI account or API key to use UOS?<span aria-hidden="true">+</span></summary>
+<p>No. UOS uses account-free device access—just install, review the one-time consent screen, and click <em>Agree &amp; start</em>. Daily demo usage limits apply.</p>
+</details>
+<details>
+<summary>What files and apps can UOS work with?<span aria-hidden="true">+</span></summary>
+<p>UOS indexes connected folders and can read TXT, Markdown, CSV, JSON, LOG, and ICS files, edit small text files with built-in undo, launch discovered Start-menu apps, and open files in Explorer or their default Windows app.</p>
+</details>
+<details>
+<summary>How does the Chrome companion work?<span aria-hidden="true">+</span></summary>
+<p>The optional Chrome extension pairs locally on <code>127.0.0.1</code> with a 256-bit token. You explicitly grant access to individual tabs for 30 minutes—UOS never reads cookies, password fields, or browser history, and you can revoke access in one click.</p>
+</details>
+<details>
+<summary>How does UOS protect my private data?<span aria-hidden="true">+</span></summary>
+<p>Folder access is strictly confined to roots you choose; symlinks escaping those roots, <code>AppData</code>, keychains, and credential files are blocked automatically. Clicking <em>Disconnect</em> stops active work, revokes your device token, and clears local permissions.</p>
+</details>
+<details>
+<summary>Why might Windows SmartScreen flag the installer?<span aria-hidden="true">+</span></summary>
+<p>Release <code>v0.19.11</code> is an early unsigned development build. Download only from this page and verify its SHA-256 hash against the <a href="downloads/release.json">release record</a>.</p>
+</details>
+</div>
+</div>
+</section>
 </main>
 <footer class="site-footer unified-footer" id="footer">
 <div class="footer-shell">
 <div class="footer-cta-banner" id="download" aria-labelledby="cta-title">
 <div class="footer-cta-copy">
 <h2 id="cta-title">Work without limits</h2>
-<p>Bring your files, browser tabs, and AI agents into one calm desktop workspace.</p>
+<p>Install UOS for Windows—connect your files, apps, and Chrome tabs with zero account setup.</p>
 </div>
 <div class="footer-cta-glass">
 <div class="footer-cta-meta">
-<div class="footer-cta-app"><img src="assets/utopia-mark.png" alt=""><span>Utopia for Windows</span></div>
+<div class="footer-cta-app"><img src="assets/utopia-mark.png" alt=""><span>Utopia (UOS) · v0.19.11</span></div>
 <div class="footer-cta-spec">Windows 10 or 11 · 64-bit <a href="downloads/release.json" aria-label="View release record">↗</a></div>
 </div>
 <a class="footer-cta-action" href="downloads/Utopia-Setup.exe"><span>Download</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -193,30 +248,32 @@
 <div class="footer-columns">
 <div class="footer-brand">
 <a class="wordmark" href="#" aria-label="Utopia home"><img class="brand-mark" src="assets/utopia-mark.png" alt="">utopia</a>
-<p>A calmer way to work across your apps, files, and AI agents on Windows.</p>
+<p>A personal AI operating layer for Windows—calm, visual, and built around your space.</p>
 </div>
 <nav class="footer-column" aria-label="Product">
 <h2>Product</h2>
 <a href="#demo">Demo</a>
 <a href="#features">Features</a>
+<a href="#how-it-works">How it works</a>
 <a href="downloads/Utopia-Setup.exe">Download</a>
 </nav>
 <nav class="footer-column" aria-label="Capabilities">
 <h2>Capabilities</h2>
 <a href="#features">Full Context</a>
 <a href="#features">Agentic Work</a>
-<a href="#features">Computer Control</a>
+<a href="#features">Dynamic UI</a>
 <a href="#features">Security</a>
 </nav>
 <nav class="footer-column" aria-label="Resources">
 <h2>Resources</h2>
+<a href="#faq">FAQ</a>
 <a href="downloads/release.json">Release record</a>
 <a href="#download">Get Utopia</a>
 </nav>
 <nav class="footer-column" aria-label="Utopia">
 <h2>Utopia</h2>
 <a href="#main">Back to top</a>
-<a href="#footer">About</a>
+<a href="https://github.com/Utopia-UOS/uos-landing-page" target="_blank" rel="noopener">GitHub</a>
 </nav>
 </div>
 <div class="footer-wordmark-display" aria-hidden="true"><span>utopia</span></div>
