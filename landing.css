@@ -282,7 +282,7 @@ body{background:var(--page);color:var(--ink)}
 .header .nav-download{background:#f4f7fb;color:var(--ink);border-color:#ffffffa8;box-shadow:0 8px 24px #10283d25}
 .header nav a{color:#f7faff}
 .hero{background:none;color:#fff}
-.hero::before{background:linear-gradient(180deg,#0c224a45 0%,transparent 22%,transparent 86%,#0c224a24 100%),url('hero.jpg?v=2') center center/cover no-repeat}
+.hero::before{background:linear-gradient(180deg,#0c224a45 0%,transparent 22%,transparent 86%,#0c224a24 100%),url('hero.jpg?v=3') center center/cover no-repeat}
 .hero::after{background:none}
 .hero-copy::before{background:radial-gradient(ellipse at center,#102b4c75 0%,#102b4c35 54%,transparent 76%)}
 .primary{background:var(--blue);color:#fff;box-shadow:0 10px 26px #102b6345}
