@@ -22,13 +22,36 @@ function selectTab(tab,focus=false){
 tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>{pauseAutoplay();selectTab(tab);});tab.addEventListener('keydown',event=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;event.preventDefault();pauseAutoplay();selectTab(tabs[event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:tabs.length-1))%tabs.length],true);});});
 // Progressive enhancement: content stays visible without JavaScript or observers.
 let revealObserver;
-const revealTargets=[...document.querySelectorAll('.section-heading,.showcase,.feature-grid article,.steps li,.privacy-note,.faq-list,.closing h2,.closing .button')];
+const revealTargets=[...document.querySelectorAll('.ed-display,.ed-copy-col,.ed-demo-offset,.sc-prompt,.ed-piece,.ed-stage-wide,.ed-cmd,.ed-spec-row,.uos-faq-list details')];
 if(!reducedMotion?.matches&&'IntersectionObserver' in window){
- revealObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.remove('reveal-pending');revealObserver.unobserve(entry.target);}},{threshold:.08,rootMargin:'0px 0px -24px 0px'});
- revealTargets.forEach(el=>{el.classList.add('scroll-reveal');if(el.getBoundingClientRect().top>window.innerHeight){el.classList.add('reveal-pending');revealObserver.observe(el);}});
- document.addEventListener('focusin',event=>{const target=event.target.closest?.('.reveal-pending');if(target){target.classList.remove('reveal-pending');revealObserver.unobserve(target);}});
+ const staggerGroups=['.ed-scatter-prompts .sc-prompt','.ed-uneven-grid .ed-piece','.ed-cloud-commands .ed-cmd','.ed-spec-matrix .ed-spec-row','.uos-faq-list details'];
+ staggerGroups.forEach(sel=>{
+  document.querySelectorAll(sel).forEach((el,i)=>{
+   const step=sel.includes('ed-cmd')?45:75;
+   el.style.setProperty('--rev-delay',`${Math.min(i*step,360)}ms`);
+  });
+ });
+ revealObserver=new IntersectionObserver(entries=>{
+  for(const entry of entries){
+   if(entry.isIntersecting){
+    entry.target.classList.remove('is-hidden');
+    revealObserver.unobserve(entry.target);
+   }
+  }
+ },{threshold:.08,rootMargin:'0px 0px -36px 0px'});
+ revealTargets.forEach(el=>{
+  el.classList.add('ed-reveal');
+  if(el.getBoundingClientRect().top>window.innerHeight*0.92){
+   el.classList.add('is-hidden');
+   revealObserver.observe(el);
+  }
+ });
+ document.addEventListener('focusin',event=>{
+  const target=event.target.closest?.('.is-hidden');
+  if(target){target.classList.remove('is-hidden');revealObserver.unobserve(target);}
+ });
 }
-reducedMotion?.addEventListener?.('change',event=>{if(event.matches){panelAnimation?.cancel();detailAnimations.forEach(a=>a.cancel());revealObserver?.disconnect();revealTargets.forEach(el=>el.classList.remove('reveal-pending'));}});
+reducedMotion?.addEventListener?.('change',event=>{if(event.matches){panelAnimation?.cancel();detailAnimations.forEach(a=>a.cancel());revealObserver?.disconnect();revealTargets.forEach(el=>el.classList.remove('is-hidden'));}});
 
 // Pointer tilt runs only on precise pointers and settles on exit. No timer loop.
 const showcase=document.querySelector('.demo-stage');
