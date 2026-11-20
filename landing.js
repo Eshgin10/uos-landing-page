@@ -115,17 +115,17 @@ if(featureSection&&featureDots.length&&featureSlides.length){
  syncFeatureFromScroll();
 }
 
-// Cinematic portal-frame scroll progression for hero
+// Smooth hero parallax scroll effect
 const heroStage=document.querySelector('.hero-stage');
 if(heroStage&&!reducedMotion?.matches){
  let heroRaf=null;
  function syncHeroScroll(){
   heroRaf=null;
-  const rect=heroStage.getBoundingClientRect();
-  const range=Math.max(1,heroStage.offsetHeight-window.innerHeight*0.35);
-  const raw=Math.max(0,Math.min(1,-rect.top/range));
-  const eased=1-Math.pow(1-raw,2.2);
-  heroStage.style.setProperty('--hero-p',eased.toFixed(4));
+  const h=Math.max(1,heroStage.offsetHeight);
+  const y=Math.max(0,Math.min(h,window.scrollY));
+  const p=y/h;
+  heroStage.style.setProperty('--hero-y',y.toFixed(1)+'px');
+  heroStage.style.setProperty('--hero-p',p.toFixed(4));
  }
  function onHeroScroll(){if(heroRaf===null)heroRaf=requestAnimationFrame(syncHeroScroll);}
  window.addEventListener('scroll',onHeroScroll,{passive:true});
