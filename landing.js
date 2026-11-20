@@ -170,8 +170,8 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  });
 });
 
-// ReactBits-inspired WebGL "Strands" frosted-glass orb for Voice Control
-(function initStrandsOrb(){
+// ReactBits-inspired WebGL "Orb" swirling plasma ring for Voice Control
+(function initVoiceOrb(){
  const canvas=document.getElementById('strands-orb');
  if(!canvas)return;
  const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true});
@@ -179,50 +179,67 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  const vs=`attribute vec2 p;varying vec2 vUv;void main(){vUv=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
  const fs=`precision highp float;
  varying vec2 vUv;
- uniform float uTime,uPulse,uListen;
+ uniform float uTime,uHover,uRot,uPulse;
  uniform vec2 uMouse;
- vec3 palette(float t){
-  vec3 c1=vec3(0.11,0.34,0.98);
-  vec3 c2=vec3(0.28,0.68,1.00);
-  vec3 c3=vec3(0.55,0.44,1.00);
-  vec3 c4=vec3(0.16,0.85,1.00);
-  float s=fract(t);
-  if(s<.33)return mix(c1,c2,s*3.);
-  if(s<.66)return mix(c2,c3,(s-.33)*3.);
-  return mix(c3,c4,(s-.66)*3.);
+ vec3 hash33(vec3 p3){
+  p3=fract(p3*vec3(0.1031,0.11369,0.13787));
+  p3+=dot(p3,p3.yxz+19.19);
+  return -1.0+2.0*fract(vec3(p3.x+p3.y,p3.x+p3.z,p3.y+p3.z)*p3.zyx);
  }
+ float snoise3(vec3 p){
+  const float K1=0.333333333;
+  const float K2=0.166666667;
+  vec3 i=floor(p+(p.x+p.y+p.z)*K1);
+  vec3 d0=p-(i-(i.x+i.y+i.z)*K2);
+  vec3 e=step(vec3(0.0),d0-d0.yzx);
+  vec3 i1=e*(1.0-e.zxy);
+  vec3 i2=1.0-e.zxy*(1.0-e);
+  vec3 d1=d0-(i1-K2);
+  vec3 d2=d0-(i2-K1);
+  vec3 d3=d0-0.5;
+  vec4 h=max(0.6-vec4(dot(d0,d0),dot(d1,d1),dot(d2,d2),dot(d3,d3)),0.0);
+  vec4 n=h*h*h*h*vec4(dot(d0,hash33(i)),dot(d1,hash33(i+i1)),dot(d2,hash33(i+i2)),dot(d3,hash33(i+1.0)));
+  return dot(vec4(31.316),n);
+ }
+ float light1(float intensity,float attenuation,float dist){return intensity/(1.0+dist*attenuation);}
+ float light2(float intensity,float attenuation,float dist){return intensity/(1.0+dist*dist*attenuation);}
  void main(){
-  vec2 uv=(vUv-.5)*2.0;
-  float r=length(uv);
-  if(r>1.0)discard;
-  float z=sqrt(max(0.0,1.0-r*r));
-  vec2 refractUv=uv*(1.0-0.24*(1.0-z))+uMouse*0.18;
-  float angle=atan(refractUv.y,refractUv.x);
-  float rad=length(refractUv);
-  float t=uTime*0.9;
-  float swell=1.0+0.15*sin(t*2.1)*uListen+uPulse*0.28;
-  vec3 strands=vec3(0.0);
-  for(int i=0;i<6;i++){
-   float fi=float(i);
-   float phase=fi*1.047+t*(0.68+fi*0.09);
-   float wave=sin(angle*2.0+rad*4.8-phase)*0.22*swell+cos(angle*3.0-rad*3.2+phase*0.8)*0.12;
-   float dist=abs(rad-0.36-wave-0.06*sin(fi+t*1.3));
-   float glow=0.024/(dist*dist+0.0075);
-   strands+=palette(fi*0.17+t*0.08+rad*0.25)*glow*0.28;
-  }
-  float core=exp(-rad*rad*4.0)*0.85*swell;
-  vec3 glassBase=mix(vec3(0.03,0.07,0.24),vec3(0.08,0.19,0.56),z);
-  vec3 col=glassBase+strands*0.95+vec3(0.45,0.75,1.0)*core*0.65;
-  float fresnel=pow(1.0-z,2.6);
-  vec3 dispersion=vec3(
-   smoothstep(0.55,1.0,r+0.03),
-   smoothstep(0.58,1.0,r),
-   smoothstep(0.52,1.0,r-0.03)
-  )*vec3(0.42,0.74,1.0)*fresnel*1.15;
-  float spec=pow(max(0.0,dot(normalize(vec3(uv,z)),normalize(vec3(-0.45,0.6,0.75)))),32.0);
-  col+=dispersion+vec3(1.0)*spec*0.78+vec3(0.32,0.58,1.0)*fresnel*0.42;
-  float edge=smoothstep(1.0,0.955,r);
-  gl_FragColor=vec4(col*edge,edge);
+  vec2 uv=(vUv-0.5)*2.0;
+  float c=cos(uRot),s=sin(uRot);
+  uv=mat2(c,-s,s,c)*uv;
+  float hoverAmp=(0.24+uPulse*0.22)*uHover;
+  uv.x+=hoverAmp*0.12*sin(uv.y*10.0+uTime*1.8);
+  uv.y+=hoverAmp*0.12*sin(uv.x*10.0+uTime*1.8);
+  uv-=uMouse*0.09*uHover;
+  vec3 color1=vec3(0.11,0.31,0.92);
+  vec3 color2=vec3(0.24,0.68,1.00);
+  vec3 color3=vec3(0.36,0.22,0.88);
+  float innerRadius=0.58;
+  float noiseScale=0.68;
+  float ang=atan(uv.y,uv.x);
+  float len=length(uv);
+  float invLen=len>0.0?1.0/len:0.0;
+  float n0=snoise3(vec3(uv*noiseScale,uTime*0.55))*0.5+0.5;
+  float r0=mix(mix(innerRadius,1.0,0.4),mix(innerRadius,1.0,0.6),n0);
+  float d0=distance(uv,(r0*invLen)*uv);
+  float v0=light1(1.15,10.5,d0);
+  v0*=smoothstep(r0*1.06,r0,len);
+  float cl=cos(ang+uTime*2.0)*0.5+0.5;
+  float a=uTime*-1.15;
+  vec2 pos=vec2(cos(a),sin(a))*r0;
+  float d=distance(uv,pos);
+  float v1=light2(1.65,5.2,d);
+  v1*=light1(1.0,50.0,d0);
+  float v2=smoothstep(1.0,mix(innerRadius,1.0,n0*0.52),len);
+  float v3=smoothstep(innerRadius,mix(innerRadius,1.0,0.52),len);
+  vec3 col=mix(color1,color2,cl);
+  col=mix(color3,col,v0);
+  col=(col+v1*vec3(0.68,0.88,1.0))*v2*v3;
+  col=clamp(col,0.0,1.0);
+  float aVal=max(max(col.r,col.g),col.b);
+  float alpha=smoothstep(0.03,0.42,aVal);
+  vec3 finalCol=mix(vec3(0.06,0.16,0.55),col,0.86);
+  gl_FragColor=vec4(finalCol*alpha,alpha);
  }`;
  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
  const prog=gl.createProgram();
@@ -237,10 +254,11 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  gl.enableVertexAttribArray(loc);
  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
  const uTime=gl.getUniformLocation(prog,'uTime');
- const uMouse=gl.getUniformLocation(prog,'uMouse');
+ const uHover=gl.getUniformLocation(prog,'uHover');
+ const uRot=gl.getUniformLocation(prog,'uRot');
  const uPulse=gl.getUniformLocation(prog,'uPulse');
- const uListen=gl.getUniformLocation(prog,'uListen');
- let mx=0,my=0,tx=0,ty=0,pulse=0,start=performance.now(),visible=true;
+ const uMouse=gl.getUniformLocation(prog,'uMouse');
+ let mx=0,my=0,tx=0,ty=0,hover=0,targetHover=0,rot=0,pulse=0,last=performance.now(),start=last,visible=true;
  function resize(){
   const dpr=Math.min(window.devicePixelRatio||1,2);
   const w=Math.max(1,Math.round(canvas.clientWidth*dpr));
@@ -250,11 +268,13 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
  }
  canvas.addEventListener('pointermove',e=>{
   const r=canvas.getBoundingClientRect();
-  tx=((e.clientX-r.left)/r.width-.5)*2;
-  ty=-(((e.clientY-r.top)/r.height-.5)*2);
+  const nx=((e.clientX-r.left)/r.width-.5)*2;
+  const ny=-(((e.clientY-r.top)/r.height-.5)*2);
+  tx=nx;ty=ny;
+  targetHover=Math.hypot(nx,ny)<0.88?1:0;
  });
- canvas.addEventListener('pointerleave',()=>{tx=0;ty=0;});
- canvas.addEventListener('click',()=>{pulse=1;});
+ canvas.addEventListener('pointerleave',()=>{tx=0;ty=0;targetHover=0;});
+ canvas.addEventListener('click',()=>{pulse=1;targetHover=1;});
  if('IntersectionObserver' in window){
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{threshold:.05}).observe(canvas);
  }
@@ -264,15 +284,20 @@ document.querySelectorAll('.uos-faq-list details').forEach(details=>{
   requestAnimationFrame(frame);
   if(!visible&&!reducedMotion?.matches)return;
   resize();
-  mx+=(tx-mx)*0.08;my+=(ty-my)*0.08;pulse*=0.93;
+  const dt=Math.min(0.05,(now-last)*0.001);
+  last=now;
+  mx+=(tx-mx)*0.09;my+=(ty-my)*0.09;
+  hover+=(targetHover-hover)*0.08;
+  pulse*=0.93;
+  if(!reducedMotion?.matches&&hover>0.05)rot+=dt*0.42*hover;
   const elapsed=reducedMotion?.matches?1.2:(now-start)*0.001;
-  const listen=0.65+0.35*Math.sin(elapsed*1.7)*Math.cos(elapsed*0.9);
   gl.clearColor(0,0,0,0);
   gl.clear(gl.COLOR_BUFFER_BIT);
   gl.uniform1f(uTime,elapsed);
-  gl.uniform2f(uMouse,mx,my);
+  gl.uniform1f(uHover,Math.max(hover,pulse));
+  gl.uniform1f(uRot,rot);
   gl.uniform1f(uPulse,pulse);
-  gl.uniform1f(uListen,listen);
+  gl.uniform2f(uMouse,mx,my);
   gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
  }
  requestAnimationFrame(frame);
