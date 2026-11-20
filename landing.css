@@ -632,8 +632,8 @@ body{background:var(--page);color:var(--ink)}
 
 /* Multi-layer sticky stacking sheets: Hero -> Demo -> Features -> FAQ -> Footer */
 .stack-layer{position:sticky;top:0;min-height:100svh;border-radius:32px 32px 0 0;box-shadow:0 -26px 76px #0b241628;padding:clamp(40px,5vw,76px) clamp(24px,5.5vw,84px) clamp(88px,10vw,140px);scroll-margin-top:0}
-.layer-demo{z-index:2;background:#f6f7ee}
-.layer-features{z-index:3;background:#eef3e6;box-shadow:0 -26px 76px #0b24162e}
+.layer-demo{z-index:2;background:#f6f7ee;padding-bottom:clamp(148px,16vw,230px)}
+.layer-features{z-index:3;background:#eef3e6;box-shadow:0 -26px 76px #0b24162e;padding-bottom:clamp(148px,16vw,230px)}
 .layer-faq{z-index:4;background:#f6f7ee;box-shadow:0 -26px 76px #0b24162a}
 .site-footer.unified-footer{position:relative;z-index:5}
 .layer-inner{max-width:1200px;margin:0 auto}
