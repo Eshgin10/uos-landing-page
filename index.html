@@ -5,7 +5,7 @@
 <title>Utopia (UOS) Beta — Your personal AI operating layer for Windows</title>
 <meta name="description" content="Utopia (UOS) Beta is a calm personal AI operating layer for Windows. Connect your files, apps, and Chrome tabs—no account or API keys required.">
 <link rel="preload" as="image" href="hero.jpg?v=6"><meta name="theme-color" content="#1e6b3f"><link rel="icon" href="assets/utopia-mark.png" type="image/png">
-<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=37"><script src="landing.js?v=17" defer></script>
+<link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="landing.css?v=38"><script src="landing.js?v=18" defer></script>
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"></div>
@@ -41,7 +41,8 @@
 <figure class="demo-film-frame"><video controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="Utopia product demo"><source src="utopia-demo.mp4" type="video/mp4">Your browser does not support HTML video. Download the <a href="utopia-demo.mp4">Utopia demo video</a>.</video><figcaption>UOS Beta in action — local context, live research, and adaptive visual answers.</figcaption></figure>
 </div>
 </div>
-<div class="ed-scatter-prompts" aria-label="Real query examples">
+<div class="ed-scatter-prompts" id="scatter-prompts" aria-label="Real query examples">
+<canvas class="sc-particles" aria-hidden="true"></canvas>
 <article class="sc-note sc-p1">
 <p class="sc-quote">“Where did I put the apartment lease notes?”</p>
 <div class="sc-receipt"><span>Documents / apartment-notes.md</span><em>Opened</em></div>
