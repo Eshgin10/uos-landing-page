@@ -707,8 +707,8 @@ body{background:var(--page);color:var(--ink)}
 .ed-cta-primary:hover em{transform:translateY(2px)}
 
 /* About section: continuous flow from inline-image manifesto into editorial project spread */
-.about-manifesto{max-width:980px;margin:clamp(24px,4vw,48px) 0 clamp(36px,4.5vw,56px);display:flex;flex-direction:column;gap:clamp(10px,1.6vw,20px)}
-.manifesto-line{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2vw,26px);margin:0;font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(38px,6.2vw,84px);line-height:1.06;letter-spacing:-.04em;color:var(--ink)}
+.about-manifesto{max-width:980px;margin:clamp(24px,4vw,48px) 0 clamp(36px,4.5vw,56px) auto;display:flex;flex-direction:column;align-items:flex-end;gap:clamp(10px,1.6vw,20px)}
+.manifesto-line{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;text-align:right;gap:clamp(14px,2vw,26px);margin:0;font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(38px,6.2vw,84px);line-height:1.06;letter-spacing:-.04em;color:var(--ink)}
 .m-pill{display:inline-block;object-fit:cover;border-radius:14px;box-shadow:0 12px 30px #0f2e1c1a;flex:none;transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .m-pill:hover{transform:scale(1.04)}
 .m-tall{width:clamp(74px,8.5vw,118px);height:clamp(88px,10.5vw,146px)}
