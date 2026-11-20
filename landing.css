@@ -19,8 +19,8 @@
 /* A more cinematic opening, with bounded depth rather than constant movement. */
 .hero-line{display:block;overflow:hidden;padding:.06em .06em .12em;margin:-.06em -.06em -.12em}.hero-line>span{display:block}
 .hero{isolation:isolate;background:none}
-.hero::before{content:"";position:absolute;inset:-5% 0;z-index:-2;background:linear-gradient(180deg,#05130875,#05130830 55%,#05130870),url('hero.jpg') center 45%/cover}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 25%,#fff8d520,transparent 65%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#0c224a45 0%,transparent 22%,transparent 86%,#0c224a28 100%),url('hero.jpg') center center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:none}
 .header nav a{position:relative;border-bottom:0!important}.header nav a::after{content:"";height:1px;background:currentColor;position:absolute;left:0;right:0;bottom:3px;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}.header nav a:hover::after,.header nav a:focus-visible::after{transform:scaleX(1)}
 .showcase{perspective:1400px}.demo-stage{transform-origin:center;backface-visibility:hidden}.primary{position:relative;overflow:hidden}.primary::after{content:"";position:absolute;inset:-60% -100%;background:linear-gradient(110deg,transparent 42%,#ffffff35 50%,transparent 58%);transform:translateX(-40%);pointer-events:none;opacity:0}.primary:hover::after{transform:translateX(40%);opacity:1;transition:transform .7s ease,opacity .15s}
 .reading-progress{position:fixed;top:0;left:0;height:3px;width:100%;background:#344ad7;transform:scaleX(0);transform-origin:left;z-index:20;pointer-events:none}
@@ -41,10 +41,10 @@
 @media(max-width:560px){.hero::before{background-position:58% center}.hero-copy h1{font-size:clamp(46px,10.6vw,64px)}}
 @media(prefers-reduced-motion:reduce){.primary::after,.reading-progress{display:none}.hero-line>span{transform:none;opacity:1}.hero::before{transform:none;filter:none}}
 
-/* Original uploaded artwork; warm light typography over the forest. */
-.hero,.header{color:#fffbee}.hero-copy h1{text-shadow:0 3px 25px #07160b70}.hero-copy>p{text-shadow:0 2px 8px #06190a}.header .nav-download{background:#f8f5e8ed;color:#233d48;border-color:#fff8}.hero::after{background:radial-gradient(ellipse at 50% 20%,transparent,#03100918 75%)}
-@media(min-width:901px){.hero::before{background-position:center 43%}}
-@media(max-width:560px){.hero::before{background-position:58% center}.hero-copy{padding-top:155px}.hero-copy h1{font-size:clamp(46px,10.6vw,64px)}}
+/* Clean full-bleed hero artwork with subtle header contrast. */
+.hero,.header{color:#fffbee}.header .nav-download{background:#f8f5e8ed;color:#233d48;border-color:#fff8}.hero::after{background:none}
+@media(min-width:901px){.hero::before{background-position:center center}}
+@media(max-width:560px){.hero::before{background-position:center center}}
 
 /* A more tactile, editorial rhythm for the second half of the page. */
 .everyday{display:block;padding-top:115px;padding-bottom:120px}
