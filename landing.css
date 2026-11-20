@@ -622,3 +622,11 @@ body{background:var(--page);color:var(--ink)}
 .uos-faq-list details[open] summary span{background:var(--blue);color:#ffffff}
 .uos-faq-list details.is-closing summary span{background:#e7f0e2;color:var(--blue)}
 .uos-faq-list code{background:#eaf2e5;color:var(--ink)}
+.site-footer.unified-footer{background:linear-gradient(180deg,#f6f7ee 0%,#f6f7eef5 12%,#f6f7eec4 26%,#f6f7ee42 44%,transparent 60%,#08190e7a 100%),url('assets/footer-meadow.jpg') center 66%/cover no-repeat;color:var(--ink)}
+.unified-footer .footer-brand .wordmark,.unified-footer .footer-column h2{color:var(--ink)}
+.unified-footer .footer-brand p,.unified-footer .footer-column{color:#354f40}
+.unified-footer .footer-column a:hover{color:var(--blue);opacity:1}
+.unified-footer .beta-tag{background:#1f6f4318;border-color:#1f6f4338;color:var(--blue)}
+.footer-wordmark-display span{color:#ffffffed;text-shadow:0 8px 34px #071a0e66}
+.footer-bottom{border-top-color:#ffffff30;color:#eef6ec}
+.footer-bottom-links a:hover{color:#ffffff}
